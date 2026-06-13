@@ -1,13 +1,14 @@
 import {ImageBackground, View} from "react-native";
 import {useEffect} from "react";
-import {navigate} from "../Navigator/NavigationService";
-import {ROUTES} from "../Components/Constant";
+import {resetToMain} from "../Navigator/NavigationService";
 
 function AppInitial() {
 
     useEffect(()=>{
         setTimeout(()=>{
-            navigate('MainTab')
+            //navigate('MainTab')
+
+            resetToMain();
         },1000)
     },[])
 

@@ -15,6 +15,18 @@ export function goBack() {
     }
 }
 
+export function resetToMain() {
+  if (navigationRef.isReady()) {
+    navigationRef.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{ name: ROUTES.MAIN_TAB}],
+      }),
+    );
+  }
+}
+
+
 
 
 // 重置到登录页并清除历史
