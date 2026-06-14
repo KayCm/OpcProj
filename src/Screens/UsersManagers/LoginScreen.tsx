@@ -10,31 +10,61 @@ export default function LoginScreen() {
 
     const inset = useSafeAreaInsets()
 
-    return (<LinearGradient colors={LOGIN_BG_SPECIAL} start={{ x: 0.5, y: 0 }}
-                            locations={[0,0.38,1]}
-                            end={{ x: 0.5, y: 1 }} style={[GStyles.pa, {paddingTop:inset.top,paddingHorizontal:appSize(24),width:WINDOW_WIDTH, height:WINDOW_HEIGHT }]}>
+    return (
+      <LinearGradient
+        colors={LOGIN_BG_SPECIAL}
+        start={{ x: 0.5, y: 0 }}
+        locations={[0, 0.38, 1]}
+        end={{ x: 0.5, y: 1 }}
+        style={{ margin: 0, width: '100%', height: WINDOW_HEIGHT }}
+      >
+        <View style={{ paddingTop: inset.top, paddingHorizontal: appSize(24),flex:1}}>
 
-            <TouchableOpacity style={{width:'100%',height:appSize(44),alignItems:'flex-end',justifyContent:'center'}} >
-                <Text style={{fontSize:appSize(16),color:'#333333'}}>注册</Text>
-            </TouchableOpacity>
+          <TouchableOpacity
+            onPress={()=>{
+              goBack();
+            }}
+            style={{
+              width: '100%',
+              height: appSize(44),
+              alignItems: 'flex-end',
+              justifyContent: 'center',
+            }}
+          >
+            <Text style={{ fontSize: appSize(16), color: '#333333' }}>
+              注册
+            </Text>
+          </TouchableOpacity>
 
-            <View style={{width:'100%',height:appSize(105),backgroundColor:''}}>
+          <View
+            style={{ width: '100%', height: appSize(105), backgroundColor: '' }}
+          ></View>
 
-            </View>
+          <View style={[GStyles.row, GStyles.jc, { width: '100%' }]}>
+            <Text style={{ color: '#999999' }}>
+              我已阅读并同意
+              <Text
+                style={{ color: '#333333' }}
+                onPress={() => {
+                  Alert.alert('用户协议');
+                }}
+              >
+                《用户协议》
+              </Text>
+              和
+              <Text
+                style={{ color: '#333333' }}
+                onPress={() => {
+                  Alert.alert('隐私政策');
+                }}
+              >
+                《隐私政策》
+              </Text>
+            </Text>
+          </View>
 
-
-        <View style={[GStyles.row,GStyles.jc,{width:'100%'}]}>
-
-            <Text style={{color:'#999999'}}>我已阅读并同意<Text style={{color:'#333333'}} onPress={()=>{
-                Alert.alert('用户协议')
-            }}>《用户协议》</Text>和<Text style={{color:'#333333'}} onPress={()=>{
-                Alert.alert('隐私政策')
-            }}>《隐私政策》</Text></Text>
 
         </View>
-
-
-
-
-        </LinearGradient>)
+      </LinearGradient>
+    );
 }

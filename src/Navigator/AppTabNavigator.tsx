@@ -34,7 +34,7 @@ function AppBottomTabBar({ state, descriptors, navigation }) {
                 justifyContent: 'center',
                 alignItems: 'center',
                 backgroundColor:'#fff',
-                height: appSize(64) + insets.bottom,
+                height: appSize(60) + insets.bottom,
                 paddingBottom:insets.bottom,
                 borderTopRightRadius:appSize(30),
                 borderTopLeftRadius:appSize(30),
@@ -42,7 +42,7 @@ function AppBottomTabBar({ state, descriptors, navigation }) {
 
             <View style={{
                 flexDirection: 'row',
-                height: appSize(64),
+                height: appSize(60),
                 width: WINDOW_WIDTH,
                 alignItems:'flex-end',
                 borderTopWidth:TRUE_ONE_LINE,
@@ -160,7 +160,7 @@ function AppBottomTabBar({ state, descriptors, navigation }) {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 // backgroundColor: isFocused ? 'red' : '',
-                                height:appSize(64)
+                                height:appSize(50)
                             }}
                         >
                             <View
@@ -168,12 +168,11 @@ function AppBottomTabBar({ state, descriptors, navigation }) {
                                     flex: 1,
                                     justifyContent: 'center',
                                     alignItems: 'center',
-                                }}
-                            >
+                                }}>
                                 {Icon}
                                 <Text style={{
                                     color: isFocused ? '#1C1A17' : '#999999',
-                                    marginTop: appSize(5),
+                                    marginTop: appSize(7.5),
                                     fontSize: isFocused ?appSize(10):appSize(10),
                                     fontWeight: isFocused ? '600' : '400',
                                     // letterSpacing:isFocused ? appSize(1.25):0
