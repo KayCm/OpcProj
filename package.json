@@ -10,12 +10,14 @@
     "test": "jest"
   },
   "dependencies": {
+    "@codeherence/react-native-header": "^1.0.1",
     "@react-native/new-app-screen": "0.86.0",
     "@react-navigation/bottom-tabs": "^7.18.0",
     "@react-navigation/elements": "^2.9.23",
     "@react-navigation/material-top-tabs": "^7.6.0",
     "@react-navigation/native": "^7.3.1",
     "@react-navigation/native-stack": "^7.17.3",
+    "@shopify/flash-list": "^2.3.2",
     "axios": "^1.17.0",
     "i18next": "^26.3.1",
     "react": "19.2.3",

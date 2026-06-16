@@ -160,7 +160,7 @@ function AppBottomTabBar({ state, descriptors, navigation }) {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 // backgroundColor: isFocused ? 'red' : '',
-                                height:appSize(50)
+                                height:appSize(60)
                             }}
                         >
                             <View
