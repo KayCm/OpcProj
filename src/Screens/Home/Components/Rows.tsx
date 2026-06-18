@@ -1,6 +1,7 @@
 import {Image, Text, View} from "react-native";
 import {appSize} from "../../../Components/GStyles";
 import React from "react";
+import {formatNumber} from "../../../Components/Tools";
 
 export const HeaderNews = () => {
 
@@ -17,7 +18,7 @@ export const HeaderNews = () => {
 
                 <View style={{gap:appSize(2),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                     <Image source={require('../../../Assets/Home/article_icon_read.png')} style={{width:appSize(16),height:appSize(16),backgroundColor:''}}/>
-                    <Text style={{color:'#999999',fontSize:appSize(12)}}>12443</Text>
+                    <Text style={{color:'#999999',fontSize:appSize(12)}}>{formatNumber(12443)}</Text>
                 </View>
 
             </View>
@@ -35,17 +36,17 @@ export const RowWithText = ({text='123'}) => {
             <View style={{gap:appSize(8),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                 <View style={{gap:appSize(2),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                     <Image source={require('../../../Assets/Home/article_icon_read.png')} style={{width:appSize(16),height:appSize(16),backgroundColor:''}}/>
-                    <Text style={{color:'#999999',fontSize:appSize(12)}}>123</Text>
+                    <Text style={{color:'#999999',fontSize:appSize(12)}}>{formatNumber(123)}</Text>
                 </View>
 
                 <View style={{gap:appSize(2),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                     <Image source={require('../../../Assets/Home/article_icon_fav.png')} style={{width:appSize(16),height:appSize(16),backgroundColor:''}}/>
-                    <Text style={{color:'#999999',fontSize:appSize(12)}}>100</Text>
+                    <Text style={{color:'#999999',fontSize:appSize(12)}}>{formatNumber(1111)}</Text>
                 </View>
 
                 <View style={{gap:appSize(2),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                     <Image  source={require('../../../Assets/Home/article_icon_share.png')} style={{width:appSize(16),height:appSize(16),backgroundColor:''}}/>
-                    <Text style={{color:'#999999',fontSize:appSize(12)}}>123</Text>
+                    <Text style={{color:'#999999',fontSize:appSize(12)}}>{formatNumber(11111)}</Text>
                 </View>
             </View>
         </View>
@@ -66,17 +67,17 @@ export const RowWithTextImg = () => {
             <View style={{gap:appSize(8),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                 <View style={{gap:appSize(2),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                     <Image source={require('../../../Assets/Home/article_icon_read.png')} style={{width:appSize(16),height:appSize(16),backgroundColor:''}}/>
-                    <Text style={{color:'#999999',fontSize:appSize(12)}}>123</Text>
+                    <Text style={{color:'#999999',fontSize:appSize(12)}}>{formatNumber(11111)}</Text>
                 </View>
 
                 <View style={{gap:appSize(2),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                     <Image source={require('../../../Assets/Home/article_icon_fav.png')} style={{width:appSize(16),height:appSize(16),backgroundColor:''}}/>
-                    <Text style={{color:'#999999',fontSize:appSize(12)}}>100</Text>
+                    <Text style={{color:'#999999',fontSize:appSize(12)}}>{formatNumber(11111)}</Text>
                 </View>
 
                 <View style={{gap:appSize(2),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                     <Image  source={require('../../../Assets/Home/article_icon_share.png')} style={{width:appSize(16),height:appSize(16),backgroundColor:''}}/>
-                    <Text style={{color:'#999999',fontSize:appSize(12)}}>123</Text>
+                    <Text style={{color:'#999999',fontSize:appSize(12)}}>{formatNumber(11111)}</Text>
                 </View>
             </View>
         </View>

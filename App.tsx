@@ -10,14 +10,17 @@ import {
   SafeAreaProvider,
 } from 'react-native-safe-area-context';
 import AppNavigator from "./src/Navigator/AppNavigator";
+import { RootSiblingParent } from 'react-native-root-siblings';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <SafeAreaProvider >
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <AppNavigator/>
+        <RootSiblingParent>
+            <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+            <AppNavigator/>
+        </RootSiblingParent>
     </SafeAreaProvider>
   );
 }

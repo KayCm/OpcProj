@@ -3,8 +3,9 @@ import {View, Text, TouchableOpacity, Alert,Image, ImageBackground, TextInput} f
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 import {goBack} from "../../Navigator/NavigationService";
 import LinearGradient from 'react-native-linear-gradient';
-import GStyles, {appSize, WINDOW_HEIGHT, WINDOW_WIDTH} from "../../Components/GStyles";
+import GStyles, {appSize, TRUE_ONE_LINE, WINDOW_HEIGHT, WINDOW_WIDTH} from "../../Components/GStyles";
 import {LOGIN_BG_NORMORL, LOGIN_BG_SPECIAL} from "../../Components/Constant";
+import Toast from 'react-native-root-toast';
 
 export default function LoginScreen() {
 
@@ -20,14 +21,25 @@ export default function LoginScreen() {
         <View style={{flex:1,paddingTop:appSize(50),paddingHorizontal:appSize(24)}}>
 
           <Text style={{color:'#000000',fontSize:appSize(14)}}>手机号码</Text>
-          <View style={{paddingHorizontal:appSize(10),marginTop:appSize(10),borderRadius:appSize(5),width:'100%',height:appSize(44),backgroundColor:'#f7f7f7'}}>
+          <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',paddingHorizontal:appSize(10),marginTop:appSize(10),borderRadius:appSize(5),width:'100%',height:appSize(44),backgroundColor:'#f7f7f7'}}>
+            <TextInput placeholder={'+86'} editable={false} style={{width:appSize(40),height:appSize(44),backgroundColor:''}} />
+            <View style={{width:1,height:appSize(26),backgroundColor:'#999999'}} />
             <TextInput placeholder={'请输入您的手机号'} style={{flex:1,backgroundColor:''}} />
           </View>
 
           <Text style={{marginTop:appSize(30),color:'#000000',fontSize:appSize(14)}}>验证码</Text>
-          <View style={{marginTop:appSize(10),borderRadius:appSize(5),width:'100%',height:appSize(44),backgroundColor:'#f7f7f7'}}></View>
+          <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',paddingHorizontal:appSize(10),marginTop:appSize(10),borderRadius:appSize(5),width:'100%',height:appSize(44),backgroundColor:'#f7f7f7'}}>
+            <TextInput placeholder={'请输入验证码'} style={{flex:1,backgroundColor:''}} />
 
-          <TouchableOpacity style={{justifyContent:'center',alignItems:'center',marginTop:appSize(35),backgroundColor:'#60A5FA',width:'100%',height:appSize(44),borderRadius:appSize(22)}}>
+            <View style={{justifyContent:'center',alignItems:'center'}}>
+              <Text style={{color:'#10B981'}}>获取验证码</Text>
+            </View>
+
+          </View>
+
+          <TouchableOpacity onPress={()=>{
+
+          }} style={{justifyContent:'center',alignItems:'center',marginTop:appSize(35),backgroundColor:'#10B981',width:'100%',height:appSize(44),borderRadius:appSize(22)}}>
             <Text style={{color:'#fff',fontSize:appSize(18),fontWeight:'600'}}>立即登录</Text>
           </TouchableOpacity>
         </View>
@@ -49,7 +61,7 @@ export default function LoginScreen() {
         <View style={{paddingHorizontal:appSize(10),marginTop:appSize(10),borderRadius:appSize(5),width:'100%',height:appSize(44),backgroundColor:'#f7f7f7'}}>
           <TextInput placeholder={'请输入登录密码'} style={{flex:1,backgroundColor:''}} />
         </View>
-        <TouchableOpacity style={{justifyContent:'center',alignItems:'center',marginTop:appSize(35),backgroundColor:'#60A5FA',width:'100%',height:appSize(44),borderRadius:appSize(22)}}>
+        <TouchableOpacity style={{justifyContent:'center',alignItems:'center',marginTop:appSize(35),backgroundColor:'#10B981',width:'100%',height:appSize(44),borderRadius:appSize(22)}}>
           <Text style={{color:'#fff',fontSize:appSize(18),fontWeight:'600'}}>立即登录</Text>
         </TouchableOpacity>
       </View>
@@ -84,15 +96,18 @@ export default function LoginScreen() {
             </Text>
           </TouchableOpacity>
 
-          <View
-            style={{ width: '100%', height: appSize(105), backgroundColor: '' }}
-          ></View>
+          <View style={{ width: '100%', backgroundColor: '',marginBottom:appSize(24) }}>
+            <Text style={{fontSize:appSize(22),color:'#1A1A1A',fontWeight:'800'}}>OPC成长平台</Text>
+            <Text style={{marginTop:appSize(12),fontSize:appSize(14),color:'#000'}}>助力成长，共同进步</Text>
+          </View>
 
 
           <LinearGradient
-              colors={['#E8F3FF', '#E8F3FF00']}
+              colors={['#10B98120', '#FFFFFF50', '#E8F3FF00']}
               style={{width:appSize(345),height:appSize(470),borderRadius:appSize(24)}}
           >
+
+            {/*<View style={[{borderTopLeftRadius:appSize(24),borderTopRightRadius:appSize(24),backgroundColor:'#10B981',width:'100%',height:appSize(60)},GStyles.pa]} />*/}
             <ImageBackground style={{width:appSize(345),height:appSize(470)}}
                              resizeMode={'contain'}
                              source={loginModel=='phone'?require('../../Assets/userManager/login_phone_bg.png'):require('../../Assets/userManager/login_mail_bg.png')}>

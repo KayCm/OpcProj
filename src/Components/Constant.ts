@@ -2,8 +2,8 @@
 export const API_BASE_URL = "https://api.123.com";
 export const APP_NAME = 'MyApp';
 
-export const LOGIN_BG_NORMORL = ['#FFFFFF', '#E8F3FF','#FFF8F3']
-export const LOGIN_BG_SPECIAL = ['#FFFFFF', '#E1F6EF','#FFF8E2']
+export const LOGIN_BG_SPECIAL = ['#FFFFFF', '#E8F3FF','#FFF8F3']
+export const LOGIN_BG_NORMORL = ['#FFFFFF', '#E1F6EF','#FFF8E2']
 
 export const ROUTES = {
 
@@ -18,7 +18,18 @@ export const ROUTES = {
     LIFE_TAB: '精彩生活',
     STARTUP_TAB: '创业',
     MAP_TAB: '你好世界',
-    MINE_TAB: '个人中心'
+    MINE_TAB: '个人中心',
+
+    PROFILE_SRC:'profileSrc',
+    PROFILE_SRC_EDIT:'profileSrcEdit',
+    IDENTITY_EDIT:'IdentityEdit',
+    EMERGENCY_ADD:'EmergencyAdd',
+    ACCOUNT_SECURITY:'AccountSecurity',
+    MY_FAVORITE:'MyFavorite',
+    NOTIFICATION:'Notification',
+    FAQ:'Faq',
+    ABOUT:'About',
+    FEEDBACK:'FeedBack',
 };
 export const STRINGS = {
     welcome: '欢迎',
