@@ -8,7 +8,7 @@ import GStyles, {appSize, TRUE_ONE_LINE, WINDOW_WIDTH} from "../Components/GStyl
 import {View, Image, Text, ImageBackground} from "react-native";
 import {Route} from "@react-navigation/routers";
 import {PlatformPressable} from "@react-navigation/elements";
-import {ROUTES} from "../Components/Constant";
+import {MAIN_COLOR, ROUTES} from "../Components/Constant";
 import StartupIndexScreen from "../Screens/Startup/MakeIndexScreen";
 import {navigate} from "./NavigationService";
 import LifeIndexScreen from "../Screens/Life/LifeIndexScreen";
@@ -137,7 +137,7 @@ function AppBottomTabBar({ state, descriptors, navigation }) {
                                 height:appSize(80)
                             }}>
                             <View style={[GStyles.jc,GStyles.ac,{height:appSize(70),width:appSize(100),borderTopLeftRadius:appSize(50),borderTopRightRadius:appSize(50),backgroundColor:'#fff'}]}>
-                                <ImageBackground style={[GStyles.jc,GStyles.ac,{backgroundColor:'#60A5FA',marginTop:appSize(-8), width:appSize(50),height:appSize(50),borderRadius:appSize(25)}]} >
+                                <ImageBackground style={[GStyles.jc,GStyles.ac,{backgroundColor:MAIN_COLOR,marginTop:appSize(-8), width:appSize(50),height:appSize(50),borderRadius:appSize(25)}]} >
                                     <Image source={require('../Assets/Tabs/tab_middle_icon.png')} style={{height:appSize(29.18),width:appSize(27.99)}} />
                                 </ImageBackground>
                             </View>

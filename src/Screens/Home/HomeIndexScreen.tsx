@@ -1,29 +1,32 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
-import GStyles, { appSize, WINDOW_WIDTH } from '../../Components/GStyles.ts';
+import {View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground} from 'react-native';
+import GStyles, {appSize, WINDOW_HEIGHT, WINDOW_WIDTH} from '../../Components/GStyles.ts';
 // import Carousel from 'react-native-reanimated-carousel/src/components/Carousel.tsx';
+import LinearGradient from 'react-native-linear-gradient';
 
 import Carousel, {
     ICarouselInstance,
     Pagination,
 } from "react-native-reanimated-carousel";
 import {HeaderNews, RowWithText, RowWithTextImg} from "./Components/Rows";
+import {LOGIN_BG_NORMORL} from "../../Components/Constant";
 export default function HomeIndexScreen() {
 
     const BannerView = () => {
+
 
       const renderItem = (item) => {
 
         console.log(item);
 
-        return (<View style={{ width: WINDOW_WIDTH,height:appSize(245) }}>
-          <Text>{item?.item}</Text>
-          <Text>{item?.item}</Text>
-          <Text>{item?.item}</Text>
-          <Text>{item?.item}</Text>
-          <Text>{item?.item}</Text>
-          <Text>{item?.item}</Text>
-        </View>);
+        return (<ImageBackground source={require('../../Assets/demo/11.png')} style={{ width: WINDOW_WIDTH,height:appSize(245),backgroundColor:'#123'}}>
+
+            <LinearGradient
+                colors={['#ffffff00','#ffffff']}
+                start={{ x: 0.5, y: 0 }}
+                end={{ x: 0.5, y: 1 }}
+                style={{position: 'absolute',bottom:0, width: '100%', height: appSize(44) }} />
+        </ImageBackground>);
 
       };
 
@@ -33,7 +36,7 @@ export default function HomeIndexScreen() {
           loop={true}
           snapEnabled={true}
           pagingEnabled={true}
-          autoPlayInterval={2000}
+          autoPlayInterval={1000}
           data={[1,2,3,4,5]}
           width={WINDOW_WIDTH}
           // scrollOffsetValue={scrollOffsetValue}
@@ -50,8 +53,7 @@ export default function HomeIndexScreen() {
           }}
           onSnapToItem={(index: number) => console.log('current index:', index)}
           renderItem={renderItem}
-        />
-      );
+        />);
 
     }
 

@@ -2,6 +2,8 @@
 export const API_BASE_URL = "https://api.123.com";
 export const APP_NAME = 'MyApp';
 
+export const MAIN_COLOR = '#10B981';
+
 export const LOGIN_BG_SPECIAL = ['#FFFFFF', '#E8F3FF','#FFF8F3']
 export const LOGIN_BG_NORMORL = ['#FFFFFF', '#E1F6EF','#FFF8E2']
 
