@@ -19,7 +19,16 @@ export default function HomeIndexScreen() {
 
         console.log(item);
 
-        return (<ImageBackground source={require('../../Assets/demo/11.png')} style={{ width: WINDOW_WIDTH,height:appSize(245),backgroundColor:'#123'}}>
+        return (<ImageBackground  source={require('../../Assets/demo/11.png')} style={{justifyContent:'center',alignItems:'center',width: WINDOW_WIDTH,height:appSize(245),backgroundColor:'#123'}}>
+
+            <Text>{item?.index}</Text>
+            <Text>{item?.item}</Text>
+            <Text>{item?.item}</Text>
+            <Text>{item?.item}</Text>
+            <Text>{item?.item}</Text>
+            <Text>{item?.item}</Text>
+            <Text>{item?.item}</Text>
+            <Text>{item?.item}</Text>
 
             <LinearGradient
                 colors={['#ffffff00','#ffffff']}
@@ -32,11 +41,10 @@ export default function HomeIndexScreen() {
 
       return (
         <Carousel
-          testID={'normal-carousel-demo'}
           loop={true}
           snapEnabled={true}
           pagingEnabled={true}
-          autoPlayInterval={1000}
+          // autoPlayInterval={1000}
           data={[1,2,3,4,5]}
           width={WINDOW_WIDTH}
           // scrollOffsetValue={scrollOffsetValue}

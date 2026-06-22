@@ -97,23 +97,23 @@ function AppBottomTabBar({ state, descriptors, navigation }) {
                     switch (label) {
                         default:
                         case ROUTES.NEWS_TAB:{
-                            Icon = isFocused ? <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_1_selected.png')} />
-                                : <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_1_unselected.png')} />
+                            Icon = isFocused ? <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_nor_1_selected.png')} />
+                                : <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_nor_1_unselect.png')} />
                             break;
                         }
                         case ROUTES.LIFE_TAB:{
-                            Icon = isFocused ? <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_2_selected.png')} />
-                                : <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_2_unselected.png')} />
+                            Icon = isFocused ? <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_nor_2_selected.png')} />
+                                : <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_nor_2_unselect.png')} />
                             break;
                         }
                         case ROUTES.MAP_TAB:{
-                            Icon = isFocused ? <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_3_selected.png')} />
-                                : <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_3_unselected.png')} />
+                            Icon = isFocused ? <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_nor_3_selected.png')} />
+                                : <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_nor_3_unselect.png')} />
                             break;
                         }
                         case ROUTES.MINE_TAB:{
-                            Icon = isFocused ? <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_4_selected.png')} />
-                                : <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_4_unselected.png')} />
+                            Icon = isFocused ? <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_nor_4_selected.png')} />
+                                : <Image style={{height:appSize(18),width:appSize(18)}} source={require('../Assets/Tabs/tab_nor_4_unselect.png')} />
                             break;
                         }
                     }

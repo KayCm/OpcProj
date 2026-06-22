@@ -17,6 +17,9 @@ import NotificationScreen from "../Screens/Mine/Profile/NotificationScreen";
 import FaqScreen from "../Screens/Mine/Profile/FaqScreen";
 import FeedbackScreen from "../Screens/Mine/Profile/FeedbackScreen";
 import AboutScreen from "../Screens/Mine/Profile/AboutScreen";
+import ActivityDetailScreen from "../Screens/Life/ActivityDetailScreen";
+import ActicityApplyScreen from "../Screens/Life/ActicityApplyScreen";
+import ActicitySignInScreen from "../Screens/Life/ActicitySignInScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +35,13 @@ export default function AppNavigator() {
 
                 <Stack.Screen name={ROUTES.MAIN_TAB} component={AppTabNavigator} options={{ headerShown: false, animation: 'fade' }} />
 
+
+                {/*Life*/}
+                <Stack.Screen name={ROUTES.LIFE_ACT_DETAIL} component={ActivityDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+                <Stack.Screen name={ROUTES.LIFE_ACT_APPLY} component={ActicityApplyScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+                <Stack.Screen name={ROUTES.LIFE_ACT_SIGNIN} component={ActicitySignInScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+
+                {/*Profile*/}
                 <Stack.Screen name={ROUTES.PROFILE_SRC} component={ProfileScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
                 <Stack.Screen name={ROUTES.PROFILE_SRC_EDIT} component={ProfileEditScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
                 <Stack.Screen name={ROUTES.IDENTITY_EDIT} component={IdentityEditScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
@@ -39,15 +49,9 @@ export default function AppNavigator() {
                 <Stack.Screen name={ROUTES.ACCOUNT_SECURITY} component={AccountSecurityScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
                 <Stack.Screen name={ROUTES.MY_FAVORITE} component={MyFavoriteScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
                 <Stack.Screen name={ROUTES.NOTIFICATION} component={NotificationScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-
                 <Stack.Screen name={ROUTES.FAQ} component={FaqScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
                 <Stack.Screen name={ROUTES.FEEDBACK} component={FeedbackScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
                 <Stack.Screen name={ROUTES.ABOUT} component={AboutScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-
-
-
-
-
 
                 <Stack.Screen name={ROUTES.LOGIN} component={LoginScreen} options={{ headerShown: false, animation: 'slide_from_bottom' }} />
                 <Stack.Screen name={ROUTES.REGISTER} component={RegisterScreen} options={{ headerShown: false, animation: 'slide_from_bottom' }} />

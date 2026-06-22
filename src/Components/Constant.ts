@@ -22,6 +22,10 @@ export const ROUTES = {
     MAP_TAB: '你好世界',
     MINE_TAB: '个人中心',
 
+    LIFE_ACT_DETAIL:'ActivityDetailScreen',
+    LIFE_ACT_APPLY:'ActicityApplyScreen',
+    LIFE_ACT_SIGNIN:'ActicitySignInScreen',
+
     PROFILE_SRC:'profileSrc',
     PROFILE_SRC_EDIT:'profileSrcEdit',
     IDENTITY_EDIT:'IdentityEdit',
