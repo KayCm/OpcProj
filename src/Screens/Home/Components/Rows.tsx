@@ -1,7 +1,9 @@
-import {Image, Text, View} from "react-native";
+import {Image, Text, TouchableOpacity, View} from "react-native";
 import {appSize} from "../../../Components/GStyles";
 import React from "react";
 import {formatNumber} from "../../../Components/Tools";
+import {navigate} from "../../../Navigator/NavigationService";
+import {ROUTES} from "../../../Components/Constant";
 
 export const HeaderNews = () => {
 
@@ -29,7 +31,9 @@ export const HeaderNews = () => {
 }
 
 export const RowWithText = ({text='123'}) => {
-    return(<View style={{backgroundColor:'#ffffff',justifyContent: 'space-between',borderRadius:appSize(12),width:'100%',height:appSize(108),paddingHorizontal:appSize(12),paddingVertical:appSize(12)}}>
+    return(<TouchableOpacity onPress={()=>{
+        navigate(ROUTES)
+    }} style={{backgroundColor:'#ffffff',justifyContent: 'space-between',borderRadius:appSize(12),width:'100%',height:appSize(108),paddingHorizontal:appSize(12),paddingVertical:appSize(12)}}>
         <Text numberOfLines={3} style={{lineHeight:appSize(18),color:'#1A1A1A',fontSize:appSize(14),fontWeight:'800'}}>{text}</Text>
         <View style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'flex-end'}}>
             <Text style={{color:'#999999',fontSize:appSize(12)}}>机械丸子 2026-06-11</Text>
@@ -50,7 +54,7 @@ export const RowWithText = ({text='123'}) => {
                 </View>
             </View>
         </View>
-    </View>)
+    </TouchableOpacity>)
 }
 
 export const RowWithTextImg = () => {

@@ -11,18 +11,20 @@ import {
 } from 'react-native-safe-area-context';
 import AppNavigator from "./src/Navigator/AppNavigator";
 import { RootSiblingParent } from 'react-native-root-siblings';
+import { KeyboardProvider } from "react-native-keyboard-controller";
+
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
-  return (
-    <SafeAreaProvider >
-        <RootSiblingParent>
-            <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-            <AppNavigator/>
-        </RootSiblingParent>
-    </SafeAreaProvider>
-  );
+  return (<SafeAreaProvider >
+            <KeyboardProvider>
+                <RootSiblingParent>
+                    {/*<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />*/}
+                    <AppNavigator/>
+                </RootSiblingParent>
+            </KeyboardProvider>
+        </SafeAreaProvider>);
 }
 
 const styles = StyleSheet.create({

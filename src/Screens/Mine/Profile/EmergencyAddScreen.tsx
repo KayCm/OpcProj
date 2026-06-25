@@ -56,12 +56,12 @@ export default function EmergencyAddScreen() {
                 <Text style={{color:'#333333',fontSize:appSize(14),fontWeight:'600'}}>姓名</Text>
                 <TextInput placeholder={'请输入姓名'} placeholderTextColor={'#CCCCCC'} style={{flex:1,height:appSize(44),backgroundColor:''}} />
             </View>
-            <View style={{flexDirection:'row',alignItems:'center',gap:appSize(16),marginTop:appSize(12),height:appSize(50),backgroundColor:'#fff',width:'100%',borderRadius:appSize(8),paddingHorizontal:appSize(16),paddingVertical:appSize(12)}}>
+            <View style={{flexDirection:'row',alignItems:'center',gap:appSize(8),marginTop:appSize(12),height:appSize(50),backgroundColor:'#fff',width:'100%',borderRadius:appSize(8),paddingHorizontal:appSize(16),paddingVertical:appSize(12)}}>
                 <Text style={{color:'#333333',fontSize:appSize(14),fontWeight:'600'}}>手机</Text>
                 <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',borderRadius:appSize(5),width:'100%',height:appSize(44)}}>
-                    <TextInput placeholder={'+86'} editable={false} style={{width:appSize(40),height:appSize(44),color:'#1A1A1A'}} />
+                    <TextInput placeholder={'+86'} editable={false} style={{textAlign:'center',width:appSize(44),height:appSize(44),color:'#1A1A1A'}} />
                     <View style={{width:1,height:appSize(26),backgroundColor:'#CCCCCC'}} />
-                    <TextInput placeholder={'请输入您的手机号'} placeholderTextColor={'#CCCCCC'} style={{flex:1,backgroundColor:''}} />
+                    <TextInput placeholder={'请输入您的手机号'} placeholderTextColor={'#CCCCCC'} style={{marginLeft:appSize(8),flex:1,backgroundColor:''}} />
                 </View>
             </View>
         </View>

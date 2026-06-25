@@ -17,9 +17,10 @@ import NotificationScreen from "../Screens/Mine/Profile/NotificationScreen";
 import FaqScreen from "../Screens/Mine/Profile/FaqScreen";
 import FeedbackScreen from "../Screens/Mine/Profile/FeedbackScreen";
 import AboutScreen from "../Screens/Mine/Profile/AboutScreen";
-import ActivityDetailScreen from "../Screens/Life/ActivityDetailScreen";
-import ActicityApplyScreen from "../Screens/Life/ActicityApplyScreen";
-import ActicitySignInScreen from "../Screens/Life/ActicitySignInScreen";
+import ActivityDetailScreen from "../Screens/Life/Acticity/ActivityDetailScreen";
+import ActicityApplyScreen from "../Screens/Life/Acticity/ActicityApplyScreen";
+import ActicitySignInScreen from "../Screens/Life/Acticity/ActicitySignInScreen";
+import ClassDetailScreen from "../Screens/Life/Class/ClassDetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,8 @@ export default function AppNavigator() {
 
                 <Stack.Screen name={ROUTES.MAIN_TAB} component={AppTabNavigator} options={{ headerShown: false, animation: 'fade' }} />
 
+                {/*Class*/}
+                <Stack.Screen name={ROUTES.CLASS_DETAIL} component={ClassDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
 
                 {/*Life*/}
                 <Stack.Screen name={ROUTES.LIFE_ACT_DETAIL} component={ActivityDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />

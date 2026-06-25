@@ -2,6 +2,8 @@ import {ImageBackground, TouchableOpacity, View, Text, Image} from "react-native
 import {appSize} from "../../../Components/GStyles";
 import React, {useRef, useState} from "react";
 import PagerView from "react-native-pager-view";
+import {navigate} from "../../../Navigator/NavigationService";
+import {ROUTES} from "../../../Components/Constant";
 
 
 
@@ -53,7 +55,7 @@ export default function LefePart() {
         </View>)
     }
 
-    const LongBar = () => {
+    const LongBar = ({onPress}) => {
 
         var ActButtonsDom = <View style={{flexDirection:'row',justifyContent:'flex-end',gap:appSize(8)}}>
             <TouchableOpacity style={{justifyContent:'center',alignItems:'center',borderWidth:1,borderColor:'#999999',borderRadius:appSize(20),paddingHorizontal:appSize(12),paddingVertical:appSize(4)}}>
@@ -121,7 +123,7 @@ export default function LefePart() {
 
 
 
-        return(<View style={{flexDirection:'row',gap:appSize(8),width:'100%',height:appSize(112),borderRadius:appSize(12),padding:appSize(10),backgroundColor:'#ffffff'}}>
+        return(<TouchableOpacity onPress={onPress} style={{flexDirection:'row',gap:appSize(8),width:'100%',height:appSize(112),borderRadius:appSize(12),padding:appSize(10),backgroundColor:'#ffffff'}}>
 
             <ImageBackground style={{width:appSize(146),height:appSize(92),borderRadius:appSize(12),backgroundColor:'#987'}}>
                 <TopMarker />
@@ -148,7 +150,7 @@ export default function LefePart() {
 
             </View>
 
-        </View>)
+        </TouchableOpacity>)
     }
 
     return(<View style={{flex:1,backgroundColor:'#F7F7F7'}}>
@@ -191,7 +193,9 @@ export default function LefePart() {
             <View style={{flex:1,backgroundColor:'#F7F7F7',width:'100%',paddingHorizontal:appSize(16),gap:appSize(20)}}>
                 <Card />
 
-                <LongBar />
+                <LongBar onPress={()=>{
+                    navigate(ROUTES.LIFE_ACT_SIGNIN)
+                }} />
             </View>
 
             <View style={{flex:1,backgroundColor:'#F7F7F7',width:'100%'}}>
