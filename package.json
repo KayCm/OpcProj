@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "GetuiConfigure": "node node_modules/react-native-getui/GetuiConfiguration.js",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
@@ -25,6 +26,7 @@
     "react-i18next": "^17.0.8",
     "react-native": "0.86.0",
     "react-native-gesture-handler": "^3.0.1",
+    "react-native-getui": "^1.1.55",
     "react-native-keyboard-controller": "^1.21.12",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-localize": "^3.7.0",

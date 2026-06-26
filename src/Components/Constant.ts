@@ -1,5 +1,5 @@
 
-export const API_BASE_URL = "https://api.123.com";
+export const API_BASE_URL = "https://vps-sg-aws-opc.43046721.xyz";
 export const APP_NAME = 'MyApp';
 
 export const MAIN_COLOR = '#10B981';
