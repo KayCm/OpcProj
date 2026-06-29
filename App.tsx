@@ -18,12 +18,12 @@ function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (<SafeAreaProvider >
-            <KeyboardProvider>
+            {/*<KeyboardProvider>*/}
                 <RootSiblingParent>
                     {/*<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />*/}
                     <AppNavigator/>
                 </RootSiblingParent>
-            </KeyboardProvider>
+            {/*</KeyboardProvider>*/}
         </SafeAreaProvider>);
 }
 
