@@ -1792,6 +1792,11 @@
   dependencies:
     nanoid "^3.3.11"
 
+"@sbaiahmed1/react-native-blur@^4.6.4-beta.1":
+  version "4.6.4-beta.1"
+  resolved "https://registry.yarnpkg.com/@sbaiahmed1/react-native-blur/-/react-native-blur-4.6.4-beta.1.tgz#f653c748075fa5ab2b4627dac9d5529ef9a6bfd7"
+  integrity sha512-Gnj1zP5TGvD0O7dlTcHyrPFo/JUGaNQ2hbSprTCeb16SS+L+akWUC7Y8XEPJLxmIAqHru6pc+6rnRyiTolyD4A==
+
 "@shopify/flash-list@^2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@shopify/flash-list/-/flash-list-2.3.2.tgz#d96a00f2195629b070117f1eaabc12f8b25be8f1"
@@ -1868,10 +1873,32 @@
   resolved "https://registry.yarnpkg.com/@svta/cml-xml/-/cml-xml-1.1.4.tgz#1acafe8d02551cb9b69e1b72c9125298a5406b21"
   integrity sha512-jbixqjiJIc16SGxylHwiOzO+DuhkGfuP+fJ9AHeVJKdFDKnabgfCDpnp6dvZpZnjMj4nHvzVtuUV7RISPIwYXw==
 
+"@tanstack/query-async-storage-persister@^5.101.2":
+  version "5.101.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-async-storage-persister/-/query-async-storage-persister-5.101.2.tgz#c0b474e7d0f62312e89956e9597dfc91f756ac29"
+  integrity sha512-jf7zvVKZ5q2j/xuhbTIBUpw5xt6cw/ioOFQquxK7fRY0AmMQP8A0JVMOgYoeQLA4PKdeT7RxsuLAF0Lft9oJ8Q==
+  dependencies:
+    "@tanstack/query-core" "5.101.2"
+    "@tanstack/query-persist-client-core" "5.101.2"
+
 "@tanstack/query-core@5.101.2":
   version "5.101.2"
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.101.2.tgz#c901fb76b68169ff5e1e44017404e7e2e90ce1af"
   integrity sha512-hH5MLoJhF7KaIGd7q3xTXGXvslI+GYlM1Z/35aSHHWaCJWB7XvTSHYuV3eM7tw+aE0mT/xMro4M4Q9rCGHT0lw==
+
+"@tanstack/query-persist-client-core@5.101.2":
+  version "5.101.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-persist-client-core/-/query-persist-client-core-5.101.2.tgz#3bcd02c1ee2090158b4b67c5e4e51cbaa694dc71"
+  integrity sha512-rgMsbvBVpSPDUsprC9FYxojdG0Q1LH6yq1i3DXz2aps4VEqv2l4Msj3YDqIifU3xkl/DrYe9YWntZAJLrM6xTg==
+  dependencies:
+    "@tanstack/query-core" "5.101.2"
+
+"@tanstack/react-query-persist-client@^5.101.2":
+  version "5.101.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query-persist-client/-/react-query-persist-client-5.101.2.tgz#673554fe900861b3075f074965d0f63f3f213be9"
+  integrity sha512-19UpaRtf0lvB2QAJ2MoixxtGf3osMOd508g99EsttUj4+3eLs+ulnNgYjB7AkQMHrRlcbVXqpVNqWkB4a7g8Zw==
+  dependencies:
+    "@tanstack/query-persist-client-core" "5.101.2"
 
 "@tanstack/react-query@^5.101.2":
   version "5.101.2"
@@ -5826,6 +5853,13 @@ react-is@^19.1.0, react-is@^19.2.3:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.2.7.tgz#57668ee86a78574a542b0a539455212b2c086df2"
   integrity sha512-kZFnouyVv7eP/Phmrlo9FK+zcAdriZJvzxXHF1Sl1P377WSGe2G/JxVolhTrB/jeV47lKImhNUsijjHAAbcl/A==
 
+react-native-animatable@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.4.0.tgz#05a259e1566081ce7d3f6fba1e92edc65f5c6160"
+  integrity sha512-DZwaDVWm2NBvBxf7I0wXKXLKb/TxDnkV53sWhCvei1pRyTX3MVFpkvdYBknNBqPrxYuAIlPxEp7gJOidIauUkw==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-native-gesture-handler@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-3.0.1.tgz#781981e3a554cc410d1227b574f7fbb9b002c644"
@@ -5860,6 +5894,18 @@ react-native-localize@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-3.7.0.tgz#4ad7347bf7a1756627f491f48cf7507e7356cf13"
   integrity sha512-6Ohx+zZzycC6zhNVBGM/u1U+O6Ww29YIFseeyXqsKcO/pTfjLcdE40IUJF4SVVwrdh00IMJwy90HjLGUaeqK7Q==
+
+react-native-mmkv-storage@^12.0.1:
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-mmkv-storage/-/react-native-mmkv-storage-12.0.1.tgz#8a7649faac0f47c0ec2866e22dca844260454db1"
+  integrity sha512-4I4NzjStuCqkeXGfJ7pcACNQ2FlZKlAQqeRvI80iZL7mQcaO5NMO26ILUk2f4LPEvxaT2ns+NcqPMZSj7L83ng==
+
+react-native-modal@^14.0.0-rc.1:
+  version "14.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-14.0.0-rc.1.tgz#d193af884c910ec34a4953508c7656b5fc83d7d4"
+  integrity sha512-v5pvGyx1FlmBzdHyPqBsYQyS2mIJhVmuXyNo5EarIzxicKhuoul6XasXMviGcXboEUT0dTYWs88/VendojPiVw==
+  dependencies:
+    react-native-animatable "1.4.0"
 
 react-native-modalfy@^3.7.0:
   version "3.7.0"

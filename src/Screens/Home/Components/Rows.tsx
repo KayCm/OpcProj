@@ -30,13 +30,21 @@ export const HeaderNews = () => {
 
 }
 
-export const RowWithText = ({text='123'}) => {
-    return(<TouchableOpacity onPress={()=>{
+export const RowWithText = ({item,index}) => {
+
+    console.log("item",item)
+    console.log("index",index)
+
+
+
+    return(<View id={index} style={{paddingVertical:appSize(6)}}>
+
+        <TouchableOpacity onPress={()=>{
         navigate(ROUTES.LIFE_ACT_SIGNIN)
     }} style={{backgroundColor:'#ffffff',justifyContent: 'space-between',borderRadius:appSize(12),width:'100%',height:appSize(108),paddingHorizontal:appSize(12),paddingVertical:appSize(12)}}>
-        <Text numberOfLines={3} style={{lineHeight:appSize(18),color:'#1A1A1A',fontSize:appSize(14),fontWeight:'800'}}>{text}</Text>
+        <Text numberOfLines={3} style={{lineHeight:appSize(18),color:'#1A1A1A',fontSize:appSize(14),fontWeight:'800'}}>{item?.title}</Text>
         <View style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'flex-end'}}>
-            <Text style={{color:'#999999',fontSize:appSize(12)}}>机械丸子 2026-06-11</Text>
+            <Text style={{color:'#999999',fontSize:appSize(12)}}>发布时间 {item?.updateTime}</Text>
             <View style={{gap:appSize(8),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                 <View style={{gap:appSize(2),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                     <Image source={require('../../../Assets/Home/article_icon_read.png')} style={{width:appSize(16),height:appSize(16),backgroundColor:''}}/>
@@ -54,20 +62,23 @@ export const RowWithText = ({text='123'}) => {
                 </View>
             </View>
         </View>
-    </TouchableOpacity>)
+    </TouchableOpacity>
+
+    </View>)
 }
 
-export const RowWithTextImg = () => {
-    return(<View style={{backgroundColor:'#ffffff',justifyContent: 'space-between',borderRadius:appSize(12),width:'100%',height:appSize(108),paddingHorizontal:appSize(12),paddingVertical:appSize(12)}}>
+export const RowWithTextImg = ({item,index}) => {
+    return( <View style={{paddingVertical:appSize(6)}}>
+        <View style={{backgroundColor:'#ffffff',justifyContent: 'space-between',borderRadius:appSize(12),width:'100%',height:appSize(108),paddingHorizontal:appSize(12),paddingVertical:appSize(12)}}>
 
         <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
-            <Text numberOfLines={3} style={{lineHeight:appSize(18),flex:1,color:'#1A1A1A',fontSize:appSize(14),fontWeight:'800'}}>的房间开了就分开了手机付款历史大家快来风刀霜剑分开了但是就放开了手稍等方式大方的说，发大水饭撒放松的身份是大发大水饭的方式大方稍等发大水饭</Text>
+            <Text numberOfLines={3} style={{lineHeight:appSize(18),flex:1,color:'#1A1A1A',fontSize:appSize(14),fontWeight:'800'}}>{item?.title}</Text>
 
             <Image style={{width:appSize(72),height:appSize(56),backgroundColor:'#123',borderRadius:appSize(4)}}/>
         </View>
 
         <View style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'flex-end'}}>
-            <Text style={{color:'#999999',fontSize:appSize(12)}}>机械丸子 2026-06-11</Text>
+            <Text style={{color:'#999999',fontSize:appSize(12)}}>发布时间 {item?.updateTime}</Text>
             <View style={{gap:appSize(8),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                 <View style={{gap:appSize(2),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
                     <Image source={require('../../../Assets/Home/article_icon_read.png')} style={{width:appSize(16),height:appSize(16),backgroundColor:''}}/>
@@ -85,5 +96,22 @@ export const RowWithTextImg = () => {
                 </View>
             </View>
         </View>
+    </View>
     </View>)
+}
+
+export const renderRow = ({item,index})=>{
+
+    if (index == 0){
+        return(<View style={{paddingHorizontal:appSize(16),paddingTop:appSize(20),paddingBottom:appSize(4)}}>
+            <Text style={{color:'#1A1A1A',fontSize:appSize(16)}}>每日推送</Text>
+        </View>)
+    }
+
+    if (item?.contentType == 'text'){
+        return(<View style={{paddingHorizontal:appSize(16)}}>{RowWithText({item,index})}</View>)
+    }else{
+        return(<View style={{paddingHorizontal:appSize(16)}}>{RowWithTextImg({item, index})}</View>)
+    }
+
 }

@@ -194,7 +194,7 @@ export default function LefePart() {
                 <Card />
 
                 <LongBar onPress={()=>{
-                    navigate(ROUTES.LIFE_ACT_SIGNIN)
+                    navigate(ROUTES.CLASS_DETAIL)
                 }} />
             </View>
 

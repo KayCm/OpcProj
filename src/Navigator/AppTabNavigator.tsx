@@ -67,11 +67,11 @@ function AppBottomTabBar({ state, descriptors, navigation }) {
                         // console.log(userInfo)
                         // console.log(label)
 
-                        if (ROUTES.STARTUP_TAB == label ){
-
-                            navigate(ROUTES.LOGIN)
-
-                        }else{
+                        // if (ROUTES.STARTUP_TAB == label ){
+                        //
+                        //     navigate(ROUTES.LOGIN)
+                        //
+                        // }else{
 
                             const event = navigation.emit({
                                 type: 'tabPress',
@@ -83,7 +83,7 @@ function AppBottomTabBar({ state, descriptors, navigation }) {
                                 navigation.navigate(route.name, route.params);
                             }
 
-                        }
+                        // }
 
                     };
 

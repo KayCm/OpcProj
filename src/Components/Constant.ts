@@ -25,6 +25,8 @@ export const ROUTES = {
 
     CLASS_DETAIL:'classDetail',
 
+    STARTUP_DETAIL:'StartupDetail',
+
     LIFE_ACT_DETAIL:'ActivityDetailScreen',
     LIFE_ACT_APPLY:'ActicityApplyScreen',
     LIFE_ACT_SIGNIN:'ActicitySignInScreen',

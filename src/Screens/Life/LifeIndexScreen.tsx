@@ -15,6 +15,7 @@ import PagerView from "react-native-pager-view";
 import GStyles, {appSize} from "../../Components/GStyles";
 import LefePart from "./Components/LefePart";
 import {goBack} from "../../Navigator/NavigationService";
+import DataList from "../../Components/DataList";
 
 
 
@@ -93,31 +94,21 @@ export default function LifeIndexScreen() {
     }
 
     const renderRow  = ({ item, index }) => {
-        if (index === 0) {
-            // 渲染头部
-            return (
-                <View style={{height: 60,
-                    backgroundColor: 'white',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    // 添加阴影提升视觉效果
-                    shadowColor: '#000',
-                    shadowOffset: { width: 0, height: 2 },
-                    shadowOpacity: 0.1,
-                    elevation: 2,
-                    // 关键：使其固定在顶部
-                    position: 'sticky',
-                    top: 0,
-                    zIndex: 99}}>
-                    <Text style={{}}>{item.title}</Text>
-                </View>
-            );
-        }
 
-        return(<View style={{paddingVertical:appSize(10)}}>
-            <View style={{width:'100%',height:appSize(64),backgroundColor:'#123'}}>
-
-        </View>
+        return( <View style={{height: 60,
+            backgroundColor: 'white',
+            justifyContent: 'center',
+            alignItems: 'center',
+            // 添加阴影提升视觉效果
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.1,
+            elevation: 2,
+            // 关键：使其固定在顶部
+            position: 'sticky',
+            top: 0,
+            zIndex: 99}}>
+            <Text style={{}}>{item.title}</Text>
         </View>)
     }
 
@@ -125,24 +116,33 @@ export default function LifeIndexScreen() {
 
         <Nav />
 
-        <FlashList renderItem={renderRow}
-                   estimatedItemSize={appSize(84)}
-                    // 3. 关键：通过 contentContainerStyle 添加 paddingTop，
-                    //    让列表内容从头部下方开始，实现“吸顶”效果
-                   contentContainerStyle={{ paddingTop: 60 }} // 高度需与头部高度匹配
-                   showsVerticalScrollIndicator={false}
-                   stickyHeaderConfig={{
-                       offset: 0, // 默认从屏幕顶部开始固定
-                       // backdropComponent: YourBackdropComponent, // 可选：自定义背景
-                       useNativeDriver: true,
-                       hideRelatedCell: true, // 隐藏列表中的原始项，避免重复
-                       onChangeStickyIndex: (current, previous) => {
-                           console.log(`新固定的头部索引: ${current}, 之前的索引: ${previous}`);
-                       },
-                   }}
-                   data={[1,2,3,4,5,6,7,8,9,0,11,22,33,44,55,66,77,88,99]}
-                   ListHeaderComponent={renderHeader}
-        />
+
+        {/*<DataList*/}
+        {/*    key={1}*/}
+        {/*    renderRow={renderRow}*/}
+        {/*    url={'/open-api/mobile/home/material/normal/list'}*/}
+        {/*    params={{}}*/}
+        {/*    queryKey={'normal-list'}*/}
+        {/*/>*/}
+
+        {/*<FlashList renderItem={renderRow}*/}
+        {/*           estimatedItemSize={appSize(84)}*/}
+        {/*            // 3. 关键：通过 contentContainerStyle 添加 paddingTop，*/}
+        {/*            //    让列表内容从头部下方开始，实现“吸顶”效果*/}
+        {/*           contentContainerStyle={{ paddingTop: 60 }} // 高度需与头部高度匹配*/}
+        {/*           showsVerticalScrollIndicator={false}*/}
+        {/*           stickyHeaderConfig={{*/}
+        {/*               offset: 0, // 默认从屏幕顶部开始固定*/}
+        {/*               // backdropComponent: YourBackdropComponent, // 可选：自定义背景*/}
+        {/*               useNativeDriver: true,*/}
+        {/*               hideRelatedCell: true, // 隐藏列表中的原始项，避免重复*/}
+        {/*               onChangeStickyIndex: (current, previous) => {*/}
+        {/*                   console.log(`新固定的头部索引: ${current}, 之前的索引: ${previous}`);*/}
+        {/*               },*/}
+        {/*           }}*/}
+        {/*           data={[1,2,3,4,5,6,7,8,9,0,11,22,33,44,55,66,77,88,99]}*/}
+        {/*           ListHeaderComponent={renderHeader}*/}
+        {/*/>*/}
 
         {/*<BannerView />*/}
 
@@ -156,7 +156,7 @@ export default function LifeIndexScreen() {
         {/*    }}*/}
         {/*    style={{ flex: 1, backgroundColor: '' }}>*/}
 
-        {/*    <LefePart />*/}
+            <LefePart />
 
         {/*    <LefePart />*/}
 
