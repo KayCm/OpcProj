@@ -25,11 +25,10 @@ function AppBottomTabBar({ state, descriptors, navigation }) {
     const { buildHref } = useLinkBuilder();
     const insets = useSafeAreaInsets();
     return (
-        <View
-            style={{
+        <View style={{
                 flexDirection: 'row',
-                // position: 'absolute',
-                // bottom: 0,
+                position: 'absolute',
+                bottom: 0,
                 width: '100%',
                 justifyContent: 'center',
                 alignItems: 'center',

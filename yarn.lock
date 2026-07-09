@@ -5860,6 +5860,11 @@ react-native-animatable@1.4.0:
   dependencies:
     prop-types "^15.8.1"
 
+react-native-collapsible-tab@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-collapsible-tab/-/react-native-collapsible-tab-0.1.1.tgz#7648bf52b4d0bf0ad157212e225c7f73f636db24"
+  integrity sha512-Dp2ebNRKBEbK3KVIOvFRIPnt/nX0ZRLm8iIMvF72oHyqohCB1JkhlfzhT9wz6ezEcp6mIxP4FVUHSsIowlg2QQ==
+
 react-native-gesture-handler@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-3.0.1.tgz#781981e3a554cc410d1227b574f7fbb9b002c644"
@@ -5963,6 +5968,11 @@ react-native-screens@^4.25.2:
   dependencies:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
+
+react-native-sized-webview@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-sized-webview/-/react-native-sized-webview-1.3.0.tgz#e113806502408c5a7789d972872145ea3cd515a5"
+  integrity sha512-98Pnz3yxE6rk4u2na5glHdoAacT35k1bimLaXfnvmyybmg++zkeRJIyjHsgwNWFF9dXYB27djlvXZ8ng+MmzjA==
 
 react-native-svg@^15.15.5:
   version "15.15.5"

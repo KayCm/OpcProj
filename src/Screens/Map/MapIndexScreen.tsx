@@ -39,58 +39,7 @@ export default function MapIndexScreen() {
 
     const { bottom } = useSafeAreaInsets();
 
-    return (
-        <ScrollViewWithHeaders
-            HeaderComponent={HeaderComponent}
-            LargeHeaderComponent={LargeHeaderComponent}
-            contentContainerStyle={{ paddingBottom: bottom }}
-        >
-            <View style={{ padding: 16 }}>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-                <Text>Some body text...</Text>
-            </View>
-        </ScrollViewWithHeaders>
-    );
+    return (<View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+            <Text>建设中...</Text>
+        </View>);
 }

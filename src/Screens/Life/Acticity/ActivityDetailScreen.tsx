@@ -3,6 +3,7 @@ import GStyles, {appSize} from "../../../Components/GStyles";
 import {goBack, navigate} from "../../../Navigator/NavigationService";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 import {MAIN_COLOR, ROUTES} from "../../../Components/Constant";
+import React from "react";
 
 function ActivityDetailScreen() {
 
@@ -48,6 +49,10 @@ function ActivityDetailScreen() {
 
     return(<View style={{flex:1,backgroundColor:'#F7F7F7'}}>
         <Nav />
+
+        <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+            <Text>缺省数据...</Text>
+        </View>
 
         <ApplyBar onPress={()=>{
             navigate(ROUTES.LIFE_ACT_APPLY)

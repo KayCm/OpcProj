@@ -6,6 +6,9 @@ import LinearGradient from "react-native-linear-gradient";
 import {BlurView, LiquidGlassView} from '@sbaiahmed1/react-native-blur';
 import DataList from "../../Components/DataList";
 import {renderRow} from "../Home/Components/Rows";
+import {navigate} from "../../Navigator/NavigationService";
+import {ROUTES} from "../../Components/Constant";
+import {StartupIndexHeader} from "./Components";
 
 export default function StartupIndexScreen() {
 
@@ -14,78 +17,6 @@ export default function StartupIndexScreen() {
 
     const [orderBy,setOrderBy] = useState(0)
 
-    const StartupIndexHeader = () => {
-
-        return(<View style={{width:'100%',alignItems:'center',backgroundColor:''}}>
-
-            <ImageBackground source={require('../../Assets/Startup/bg.png')} style={{position:'absolute',backgroundColor:'red',width:'100%',height:appSize(220)}} >
-
-            </ImageBackground>
-
-            <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',marginTop:insets.top,height:appSize(44),width:'100%',paddingHorizontal:appSize(16),backgroundColor:'#12312300'}} >
-
-                <TouchableOpacity style={{height:appSize(44),width:appSize(44),justifyContent:'center'}}>
-                    <Image style={{height:appSize(14),width:appSize(14)}} source={require('../../Assets/Startup/backIcon.png')} />
-                </TouchableOpacity>
-
-
-
-                <Text style={{fontSize:appSize(18),color:'#ffffff'}}>创业就业</Text>
-
-
-                <TouchableOpacity style={{height:appSize(44),width:appSize(44),alignItems:'flex-end',justifyContent:'center'}}>
-                    <Image style={{height:appSize(30),width:appSize(30)}} source={require('../../Assets/Startup/classIcon.png')} />
-
-                    <View style={{justifyContent:'center',alignItems:'center',position:'absolute',top:appSize(6),right:0,borderRadius:appSize(7),height:appSize(14),width:appSize(14),backgroundColor:'red'}}>
-                        <Text style={{fontSize:appSize(9),color:'#ffffff'}}>12</Text>
-                    </View>
-                </TouchableOpacity>
-
-            </View>
-
-            <View style={{paddingHorizontal:appSize(16),marginTop:appSize(16)}}>
-                <View style={{borderRadius:appSize(16),width:'100%',height:appSize(182),backgroundColor:'#10B98130'}}>
-                    <BlurView
-                        blurAmount={70}
-                        blurType="light"
-                        style={{padding:appSize(16),borderRadius:appSize(16),width:'100%',height:appSize(182),backgroundColor:''}}>
-                        <Text style={{color:'#fff',fontSize:appSize(12)}}>我的财富</Text>
-                        <Text style={{color:'#fff',fontSize:appSize(28),marginTop:appSize(8)}}>¥2,856.50</Text>
-
-                        <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:appSize(16),width:'100%'}}>
-
-                            <View style={{backgroundColor:'#ffffff66',borderRadius:appSize(16)}}>
-                                <BlurView
-                                    blurAmount={50}
-                                    blurType="light"
-                                    style={{padding:appSize(16),justifyContent:'center',alignItems:'center',borderRadius:appSize(16),width:appSize(162),height:appSize(64),backgroundColor:''}}>
-                                    <Text style={{color:'#333333',fontSize:appSize(20)}}>3</Text>
-                                    <Text style={{color:'#666666',fontSize:appSize(12)}}>加入项目</Text>
-                                </BlurView>
-                            </View>
-
-                            <View style={{backgroundColor:'#ffffff66',borderRadius:appSize(16)}}>
-                                <BlurView
-                                    blurAmount={50}
-                                    blurType="light"
-                                    style={{padding:appSize(16),justifyContent:'center',alignItems:'center',borderRadius:appSize(16),width:appSize(162),height:appSize(64),backgroundColor:''}}>
-                                    <Text style={{color:'#333333',fontSize:appSize(20)}}>¥ 820.00</Text>
-                                    <Text style={{color:'#666666',fontSize:appSize(12)}}>本月收入</Text>
-                                </BlurView>
-                            </View>
-
-
-                        </View>
-
-                    </BlurView>
-                </View>
-            </View>
-
-
-            {/*<Image source={require('../../Assets/demo/demo3.png')} style={{marginTop:appSize(200),borderRadius:appSize(16),width:appSize(361),height:appSize(202),backgroundColor:''}} />*/}
-
-        </View>)
-    }
 
     const renderRow = ({item,index}) => {
 
@@ -94,21 +25,69 @@ export default function StartupIndexScreen() {
 
 
 
-            <TouchableOpacity style={{width:'100%',height:appSize(305),padding:appSize(12),borderRadius:appSize(12),backgroundColor:'#ffffff'}}>
+            <View style={{width:'100%',height:appSize(305),padding:appSize(12),borderRadius:appSize(12),backgroundColor:'#ffffff'}}>
 
-                <ImageBackground source={require('../../Assets/demo/demo4.png')} style={{borderRadius:appSize(12),overflow:'hidden',width:'100%',height:appSize(190)}} >
+                <ImageBackground source={require('../../Assets/demo/demo4.png')} imageStyle={{borderRadius:appSize(12)}} style={{backgroundColor:'',borderRadius:appSize(12),width:'100%',height:appSize(190)}} >
+
+
+                    {/*<BlurView*/}
+                    {/*    blurAmount={10}*/}
+                    {/*    blurType="light"*/}
+                    {/*    style={{position:'absolute',flexDirection:'row',justifyContent:'center',alignItems:'center',paddingHorizontal:appSize(12),gap:appSize(10),borderTopLeftRadius:appSize(12),borderBottomRightRadius:appSize(12),bottom:0,right:1,height:appSize(32),backgroundColor:''}}>*/}
+
+                    {/*    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>*/}
+                    {/*        <Image source={require('../../Assets/Startup/icon1.png')} style={{height:appSize(18),width:appSize(18)}} />*/}
+                    {/*        <Text style={{color:'#fff',fontSize:appSize(12)}}>100</Text>*/}
+                    {/*    </View>*/}
+
+                    {/*    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>*/}
+                    {/*        <Image source={require('../../Assets/Startup/icon2.png')} style={{height:appSize(18),width:appSize(18)}} />*/}
+                    {/*        <Text style={{color:'#fff',fontSize:appSize(12)}}>100</Text>*/}
+                    {/*    </View>*/}
+
+                    {/*    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>*/}
+                    {/*        <Image source={require('../../Assets/Startup/icon3.png')} style={{height:appSize(18),width:appSize(18)}} />*/}
+                    {/*        <Text style={{color:'#fff',fontSize:appSize(12)}}>100</Text>*/}
+                    {/*    </View>*/}
+
+
+                    {/*</BlurView>*/}
 
                 </ImageBackground>
 
-                <View style={{flexDirection:'row',gap:appSize(4)}} >
-                    <Text numberOfLines={1}>发的沙发上的</Text>
-                    <View style={{padding:appSize(4),borderRadius:appSize(4),backgroundColor:'#10B9811A'}}>
-                        <Text style={{color:'#10B981',fontSize:appSize(12)}}>招募中</Text>
+                <View style={{flexDirection:'row',justifyContent:'space-between',gap:appSize(4),marginTop:appSize(10)}} >
+                    <View style={{flexDirection:'row',alignItems:'center',gap:appSize(4)}} >
+                        <Text numberOfLines={1}>发的沙发上的</Text>
+                        <View style={{padding:appSize(4),borderRadius:appSize(4),backgroundColor:'#10B9811A'}}>
+                            <Text style={{color:'#10B981',fontSize:appSize(12)}}>招募中</Text>
+                        </View>
                     </View>
+
+                    <Text style={{color:'#FFA059'}}>¥ 1000起</Text>
                 </View>
 
 
-            </TouchableOpacity>
+                <View style={{flexDirection:'row',alignItems:'center',marginTop:appSize(4)}}>
+                    <Text style={{color:'#999999',fontSize:appSize(12)}}>项目</Text>
+                </View>
+
+                <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',gap:appSize(4),marginTop:appSize(8)}} >
+                    <View>
+                        <View style={{flexDirection:'row',gap:appSize(4),paddingVertical:appSize(4),paddingHorizontal:appSize(8),backgroundColor:'#F7F7F7',borderRadius:appSize(4),alignItems:'center'}} >
+                            <Image style={{width:appSize(15),height:appSize(15)}} source={require('../../Assets/Startup/hugeicon.png')} />
+                            <Text style={{color:'#666666',fontSize:appSize(12)}}>项目人数：20 人 | 截止 06-15</Text>
+                        </View>
+                    </View>
+
+                    <TouchableOpacity onPress={()=>{
+                        navigate(ROUTES.STARTUP_DETAIL)
+                    }}  style={{borderColor:'#10B981',borderRadius:appSize(20),borderWidth:1,paddingHorizontal:appSize(12),paddingVertical:appSize(4),justifyContent:'center',alignItems:'center'}}>
+                        <Text style={{color:'#10B981'}}>参与项目</Text>
+                    </TouchableOpacity>
+                </View>
+
+
+            </View>
 
 
         </View>)
@@ -143,8 +122,7 @@ export default function StartupIndexScreen() {
     return(<View style={{flex:1,backgroundColor:"",paddingTop:0}}>
 
 
-        {StartupIndexHeader()}
-
+        <StartupIndexHeader />
 
         <DataList
             key={1}
@@ -152,6 +130,7 @@ export default function StartupIndexScreen() {
             url={'/open-api/mobile/home/material/normal/list'}
             params={{}}
             queryKey={'normal-list'}
+            style={{marginTop:appSize(10)}}
         />
 
 

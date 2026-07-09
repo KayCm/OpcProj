@@ -40,7 +40,11 @@ export const RowWithText = ({item,index}) => {
     return(<View id={index} style={{paddingVertical:appSize(6)}}>
 
         <TouchableOpacity onPress={()=>{
-        navigate(ROUTES.LIFE_ACT_SIGNIN)
+        //navigate(ROUTES.LIFE_ACT_SIGNIN)
+
+            navigate('Detail', { item: item });
+
+
     }} style={{backgroundColor:'#ffffff',justifyContent: 'space-between',borderRadius:appSize(12),width:'100%',height:appSize(108),paddingHorizontal:appSize(12),paddingVertical:appSize(12)}}>
         <Text numberOfLines={3} style={{lineHeight:appSize(18),color:'#1A1A1A',fontSize:appSize(14),fontWeight:'800'}}>{item?.title}</Text>
         <View style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'flex-end'}}>
@@ -68,7 +72,9 @@ export const RowWithText = ({item,index}) => {
 }
 
 export const RowWithTextImg = ({item,index}) => {
-    return( <View style={{paddingVertical:appSize(6)}}>
+    return( <TouchableOpacity onPress={()=>{
+        navigate('Detail', { item: item });
+    }} style={{paddingVertical:appSize(6)}}>
         <View style={{backgroundColor:'#ffffff',justifyContent: 'space-between',borderRadius:appSize(12),width:'100%',height:appSize(108),paddingHorizontal:appSize(12),paddingVertical:appSize(12)}}>
 
         <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
@@ -97,7 +103,7 @@ export const RowWithTextImg = ({item,index}) => {
             </View>
         </View>
     </View>
-    </View>)
+    </TouchableOpacity>)
 }
 
 export const renderRow = ({item,index})=>{

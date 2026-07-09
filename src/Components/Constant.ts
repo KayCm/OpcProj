@@ -1,3 +1,4 @@
+import OpportunityListScreen from "../Screens/Startup/OpportunityListScreen";
 
 export const API_BASE_URL = "https://vps-sg-aws-opc.43046721.xyz";
 export const APP_NAME = 'MyApp';
@@ -24,8 +25,10 @@ export const ROUTES = {
 
 
     CLASS_DETAIL:'classDetail',
+    CLASS_PLAYER:'classPlayer',
 
     STARTUP_DETAIL:'StartupDetail',
+    OPPORTUNITY_LIST:'OpportunityList',
 
     LIFE_ACT_DETAIL:'ActivityDetailScreen',
     LIFE_ACT_APPLY:'ActicityApplyScreen',

@@ -50,7 +50,7 @@ const useInfiniteItems = ({url,params,queryKey}: any) => {
 };
 
 
-export default function DataList({url,params,queryKey,renderHeader=null,renderRow=null,renderEmpty=null,numColumns=1,estimatedItemSize=110,onScroll}: any) {
+export default function DataList({url,params,queryKey,renderHeader=null,renderRow=null,renderEmpty=null,numColumns=1,estimatedItemSize=110,onScroll,style}: any) {
 
 
     const {
@@ -132,7 +132,7 @@ export default function DataList({url,params,queryKey,renderHeader=null,renderRo
             ListHeaderComponent={renderHeader}
             ListFooterComponent={renderFooter}
             ListEmptyComponent={renderEmpty}
-            style={{flex:1}}
+            style={[{flex:1},style]}
             onScroll={onScroll}
             contentContainerStyle={{width: '100%',}}
         />

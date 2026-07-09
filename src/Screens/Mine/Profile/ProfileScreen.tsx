@@ -10,9 +10,9 @@ import {MenuBarComp} from "./MenuBarComp";
 
 const proMeunsArr1 = [
     {icon:require('../../../Assets/Profile/pro_icon1.png'),title:'个人资料',press:()=>navigate(ROUTES.PROFILE_SRC_EDIT)},
-    {icon:require('../../../Assets/Profile/pro_icon2.png'),title:'身份信息',press:()=>navigate(ROUTES.IDENTITY_EDIT)},
-    {icon:require('../../../Assets/Profile/pro_icon3.png'),title:'账号安全',press:()=>navigate(ROUTES.ACCOUNT_SECURITY)},
-    {icon:require('../../../Assets/Profile/pro_icon4.png'),title:'我的收藏',press:()=>navigate(ROUTES.MY_FAVORITE)},
+    {icon:require('../../../Assets/Profile/pro_icon2.png'),title:'账号关联',press:()=>navigate(ROUTES.IDENTITY_EDIT)},
+    // {icon:require('../../../Assets/Profile/pro_icon3.png'),title:'账号安全',press:()=>navigate(ROUTES.ACCOUNT_SECURITY)},
+    // {icon:require('../../../Assets/Profile/pro_icon4.png'),title:'我的收藏',press:()=>navigate(ROUTES.MY_FAVORITE)},
     {icon:require('../../../Assets/Profile/pro_icon5.png'),title:'通知管理',press:()=>navigate(ROUTES.NOTIFICATION)},
 ]
 
@@ -54,8 +54,9 @@ function ProfileScreen() {
                     goBack()
                 }}  style={{justifyContent:'center',width:appSize(44),height:appSize(44)}}>
                     <Image source={require('../../../Assets/Common/nav_back.png')} style={{height:appSize(14),width:appSize(14)}} />
-                    {/*<NavBack />*/}
                 </TouchableOpacity>
+                <Text style={{color:'#1A1A1A',fontSize:appSize(17)}}>设置</Text>
+                <View style={{width:appSize(44)}} />
             </View>
         </View>)
     }
@@ -75,6 +76,12 @@ function ProfileScreen() {
                     return(<MenuBarComp key={'tag'+index} icon={value?.icon} title={value?.title} onPress={value?.press} />)
                 })}
             </View>
+
+
+            <TouchableOpacity style={{width:'100%',backgroundColor:'#ffffff',marginTop:appSize(12),borderRadius:appSize(8)}}>
+
+            </TouchableOpacity>
+
         </ScrollView>
 
     </View>)

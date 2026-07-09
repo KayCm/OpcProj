@@ -22,6 +22,9 @@ import ActicityApplyScreen from "../Screens/Life/Acticity/ActicityApplyScreen";
 import ActicitySignInScreen from "../Screens/Life/Acticity/ActicitySignInScreen";
 import ClassDetailScreen from "../Screens/Life/Class/ClassDetailScreen";
 import StartupDetailScreen from "../Screens/Startup/StartupDetailScreen";
+import Detail from "../Screens/Home/Detail";
+import PlayerScreen from "../Screens/Life/Class/PlayerScreen";
+import OpportunityListScreen from "../Screens/Startup/OpportunityListScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -39,9 +42,13 @@ export default function AppNavigator() {
 
                 {/*Class*/}
                 <Stack.Screen name={ROUTES.CLASS_DETAIL} component={ClassDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+                <Stack.Screen name={ROUTES.CLASS_PLAYER} component={PlayerScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
 
                 {/* STARTUP */}
                 <Stack.Screen name={ROUTES.STARTUP_DETAIL} component={StartupDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+                <Stack.Screen name={ROUTES.OPPORTUNITY_LIST} component={OpportunityListScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+
+                <Stack.Screen name={'Detail'} component={Detail} options={{ headerShown: false, animation: 'slide_from_right' }} />
 
                 {/*Life*/}
                 <Stack.Screen name={ROUTES.LIFE_ACT_DETAIL} component={ActivityDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
