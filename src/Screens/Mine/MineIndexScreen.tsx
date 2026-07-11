@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image, ScrollView, Alert} from 'react-native';
 import {useNavigation} from "@react-navigation";
 import {navigate} from "../../Navigator/NavigationService";
 import {ROUTES} from "../../Components/Constant";
@@ -33,7 +33,8 @@ export default function MineIndexScreen() {
 
     return(<View style={{flex:1,backgroundColor:"",paddingTop:0}}>
         <Image source={require('../../Assets/Mine/prosonBg.png')} style={{left:appSize(-70),position:'absolute',width:'120%',height:appSize(400)}} />
-        <ScrollView>
+        <ScrollView showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}>
             <View style={{paddingBottom:appSize(110)}}>
                 {/*<View source={{}} style={{paddingTop:insets.top+appSize(10)}} >*/}
                 <View style={{height:insets.top+appSize(10)}} />
@@ -41,7 +42,9 @@ export default function MineIndexScreen() {
                         navigate(ROUTES.PROFILE_SRC)
                     }} />
                 {/*<InfoCard />*/}
-                <InfoUnLoginCard />
+                <InfoUnLoginCard loginPress={()=>{
+                    navigate(ROUTES.LOGIN)
+                }} />
                 <View style={{height:appSize(12)}} />
                 {/*<GrowthCenterCard medals={medals} missions={missions} />*/}
                 <GrowthCenterUnLoginCard medals={medals} missions={missions} />

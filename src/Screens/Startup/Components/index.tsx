@@ -1,4 +1,4 @@
-import {Image, ImageBackground, Text, TouchableOpacity, View} from "react-native";
+import {Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {appSize} from "../../../Components/GStyles";
 import {BlurView} from "@sbaiahmed1/react-native-blur";
 import React from "react";
@@ -41,6 +41,10 @@ export const StartupIndexHeader = () => {
 
         <View style={{paddingHorizontal:appSize(16),marginTop:appSize(16)}}>
             <View style={{borderRadius:appSize(16),width:'100%',height:appSize(182),backgroundColor:'#10B98130'}}>
+
+                <View style={styles.shadowContainer}>
+
+
                 <BlurView
                     blurAmount={70}
                     blurType="light"
@@ -74,6 +78,8 @@ export const StartupIndexHeader = () => {
                     </View>
 
                 </BlurView>
+
+                </View>
             </View>
         </View>
 
@@ -82,3 +88,21 @@ export const StartupIndexHeader = () => {
 
     </View>)
 }
+
+
+const styles = StyleSheet.create({
+    shadowContainer: {
+        backgroundColor: '#00000000',
+        borderRadius: appSize(16),
+        // 使用 boxShadow 属性
+        boxShadow: [
+            {
+                offsetX: 0,          // 水平偏移
+                offsetY: 4,          // 垂直偏移
+                blurRadius: 8,       // 模糊半径
+                spreadDistance: 0,   // 扩散距离
+                color: 'rgba(0, 0, 0, 0.15)', // 阴影颜色
+            },
+        ],
+    },
+});

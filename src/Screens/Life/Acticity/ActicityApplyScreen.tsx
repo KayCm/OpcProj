@@ -1,4 +1,4 @@
-import {Image, ScrollView, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Image, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity, View} from "react-native";
 import GStyles, {appSize} from "../../../Components/GStyles";
 import {goBack} from "../../../Navigator/NavigationService";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
@@ -54,12 +54,11 @@ function ActicityApplyScreen() {
     return(<View style={{flex:1,backgroundColor:'#F7F7F7'}}>
         <Nav />
 
-        <KeyboardGestureArea
-            showOnSwipeUp
-            interpolator={'linear'}
-            offset={50}>
-
-        <ScrollView>
+        <KeyboardAvoidingView
+            style={{flex: 1 }}
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined} // 关键属性
+        >
+            <ScrollView>
             <View style={{paddingHorizontal:appSize(16)}}>
 
                 <View style={{flexDirection:'row',alignItems:'center',gap:appSize(16),marginTop:appSize(12),height:appSize(50),backgroundColor:'#fff',width:'100%',borderRadius:appSize(8),paddingHorizontal:appSize(16),paddingVertical:appSize(12)}}>
@@ -124,7 +123,8 @@ function ActicityApplyScreen() {
             </View>
         </ScrollView>
 
-        </KeyboardGestureArea>
+        </KeyboardAvoidingView>
+
 
         <ApplyBar />
 

@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     factory.startReactNative(
       withModuleName: "OpcProj",
-      in: window,
+      in: window, 
       launchOptions: launchOptions
     )
 

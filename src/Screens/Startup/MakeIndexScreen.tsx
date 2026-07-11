@@ -24,70 +24,73 @@ export default function StartupIndexScreen() {
         return(<View style={{width:'100%',paddingHorizontal:appSize(16),paddingVertical:appSize(6)}}>
 
 
+            <View style={styles.shadowContainer}>
+                <View style={{width:'100%',height:appSize(305),padding:appSize(12),borderRadius:appSize(12),backgroundColor:'#ffffff'}}>
 
-            <View style={{width:'100%',height:appSize(305),padding:appSize(12),borderRadius:appSize(12),backgroundColor:'#ffffff'}}>
-
-                <ImageBackground source={require('../../Assets/demo/demo4.png')} imageStyle={{borderRadius:appSize(12)}} style={{backgroundColor:'',borderRadius:appSize(12),width:'100%',height:appSize(190)}} >
-
-
-                    {/*<BlurView*/}
-                    {/*    blurAmount={10}*/}
-                    {/*    blurType="light"*/}
-                    {/*    style={{position:'absolute',flexDirection:'row',justifyContent:'center',alignItems:'center',paddingHorizontal:appSize(12),gap:appSize(10),borderTopLeftRadius:appSize(12),borderBottomRightRadius:appSize(12),bottom:0,right:1,height:appSize(32),backgroundColor:''}}>*/}
-
-                    {/*    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>*/}
-                    {/*        <Image source={require('../../Assets/Startup/icon1.png')} style={{height:appSize(18),width:appSize(18)}} />*/}
-                    {/*        <Text style={{color:'#fff',fontSize:appSize(12)}}>100</Text>*/}
-                    {/*    </View>*/}
-
-                    {/*    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>*/}
-                    {/*        <Image source={require('../../Assets/Startup/icon2.png')} style={{height:appSize(18),width:appSize(18)}} />*/}
-                    {/*        <Text style={{color:'#fff',fontSize:appSize(12)}}>100</Text>*/}
-                    {/*    </View>*/}
-
-                    {/*    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>*/}
-                    {/*        <Image source={require('../../Assets/Startup/icon3.png')} style={{height:appSize(18),width:appSize(18)}} />*/}
-                    {/*        <Text style={{color:'#fff',fontSize:appSize(12)}}>100</Text>*/}
-                    {/*    </View>*/}
+                    <ImageBackground source={require('../../Assets/demo/demo4.png')} imageStyle={{borderRadius:appSize(12)}} style={{backgroundColor:'',borderRadius:appSize(12),width:'100%',height:appSize(190)}} >
 
 
-                    {/*</BlurView>*/}
+                        {/*<BlurView*/}
+                        {/*    blurAmount={10}*/}
+                        {/*    blurType="light"*/}
+                        {/*    style={{position:'absolute',flexDirection:'row',justifyContent:'center',alignItems:'center',paddingHorizontal:appSize(12),gap:appSize(10),borderTopLeftRadius:appSize(12),borderBottomRightRadius:appSize(12),bottom:0,right:1,height:appSize(32),backgroundColor:''}}>*/}
 
-                </ImageBackground>
+                        {/*    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>*/}
+                        {/*        <Image source={require('../../Assets/Startup/icon1.png')} style={{height:appSize(18),width:appSize(18)}} />*/}
+                        {/*        <Text style={{color:'#fff',fontSize:appSize(12)}}>100</Text>*/}
+                        {/*    </View>*/}
 
-                <View style={{flexDirection:'row',justifyContent:'space-between',gap:appSize(4),marginTop:appSize(10)}} >
-                    <View style={{flexDirection:'row',alignItems:'center',gap:appSize(4)}} >
-                        <Text numberOfLines={1}>发的沙发上的</Text>
-                        <View style={{padding:appSize(4),borderRadius:appSize(4),backgroundColor:'#10B9811A'}}>
-                            <Text style={{color:'#10B981',fontSize:appSize(12)}}>招募中</Text>
+                        {/*    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>*/}
+                        {/*        <Image source={require('../../Assets/Startup/icon2.png')} style={{height:appSize(18),width:appSize(18)}} />*/}
+                        {/*        <Text style={{color:'#fff',fontSize:appSize(12)}}>100</Text>*/}
+                        {/*    </View>*/}
+
+                        {/*    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>*/}
+                        {/*        <Image source={require('../../Assets/Startup/icon3.png')} style={{height:appSize(18),width:appSize(18)}} />*/}
+                        {/*        <Text style={{color:'#fff',fontSize:appSize(12)}}>100</Text>*/}
+                        {/*    </View>*/}
+
+
+                        {/*</BlurView>*/}
+
+                    </ImageBackground>
+
+                    <View style={{flexDirection:'row',justifyContent:'space-between',gap:appSize(4),marginTop:appSize(10)}} >
+                        <View style={{flexDirection:'row',alignItems:'center',gap:appSize(4)}} >
+                            <Text numberOfLines={1}>发的沙发上的</Text>
+                            <View style={{padding:appSize(4),borderRadius:appSize(4),backgroundColor:'#10B9811A'}}>
+                                <Text style={{color:'#10B981',fontSize:appSize(12)}}>招募中</Text>
+                            </View>
                         </View>
+
+                        <Text style={{color:'#FFA059'}}>¥ 1000起</Text>
                     </View>
 
-                    <Text style={{color:'#FFA059'}}>¥ 1000起</Text>
-                </View>
 
-
-                <View style={{flexDirection:'row',alignItems:'center',marginTop:appSize(4)}}>
-                    <Text style={{color:'#999999',fontSize:appSize(12)}}>项目</Text>
-                </View>
-
-                <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',gap:appSize(4),marginTop:appSize(8)}} >
-                    <View>
-                        <View style={{flexDirection:'row',gap:appSize(4),paddingVertical:appSize(4),paddingHorizontal:appSize(8),backgroundColor:'#F7F7F7',borderRadius:appSize(4),alignItems:'center'}} >
-                            <Image style={{width:appSize(15),height:appSize(15)}} source={require('../../Assets/Startup/hugeicon.png')} />
-                            <Text style={{color:'#666666',fontSize:appSize(12)}}>项目人数：20 人 | 截止 06-15</Text>
-                        </View>
+                    <View style={{flexDirection:'row',alignItems:'center',marginTop:appSize(4)}}>
+                        <Text style={{color:'#999999',fontSize:appSize(12)}}>项目</Text>
                     </View>
 
-                    <TouchableOpacity onPress={()=>{
-                        navigate(ROUTES.STARTUP_DETAIL)
-                    }}  style={{borderColor:'#10B981',borderRadius:appSize(20),borderWidth:1,paddingHorizontal:appSize(12),paddingVertical:appSize(4),justifyContent:'center',alignItems:'center'}}>
-                        <Text style={{color:'#10B981'}}>参与项目</Text>
-                    </TouchableOpacity>
-                </View>
+                    <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',gap:appSize(4),marginTop:appSize(8)}} >
+                        <View>
+                            <View style={{flexDirection:'row',gap:appSize(4),paddingVertical:appSize(4),paddingHorizontal:appSize(8),backgroundColor:'#F7F7F7',borderRadius:appSize(4),alignItems:'center'}} >
+                                <Image style={{width:appSize(15),height:appSize(15)}} source={require('../../Assets/Startup/hugeicon.png')} />
+                                <Text style={{color:'#666666',fontSize:appSize(12)}}>项目人数：20 人 | 截止 06-15</Text>
+                            </View>
+                        </View>
 
+                        <TouchableOpacity onPress={()=>{
+                            navigate(ROUTES.STARTUP_DETAIL)
+                        }}  style={{borderColor:'#10B981',borderRadius:appSize(20),borderWidth:1,paddingHorizontal:appSize(12),paddingVertical:appSize(4),justifyContent:'center',alignItems:'center'}}>
+                            <Text style={{color:'#10B981'}}>参与项目</Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                </View>
 
             </View>
+
 
 
         </View>)
@@ -138,3 +141,23 @@ export default function StartupIndexScreen() {
 
     </View>)
 }
+
+
+const styles = StyleSheet.create({
+    shadowContainer: {
+        backgroundColor: '#00000000',
+        borderRadius: appSize(16),
+        // 使用 boxShadow 属性
+        boxShadow: [
+            {
+                offsetX: 0,          // 水平偏移
+                offsetY: 4,          // 垂直偏移
+                blurRadius: 8,       // 模糊半径
+                spreadDistance: 0,   // 扩散距离
+                color: 'rgba(0, 0, 0, 0.15)', // 阴影颜色
+            },
+        ],
+    },
+});
+
+
