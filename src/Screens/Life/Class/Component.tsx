@@ -87,7 +87,7 @@ export const renderRow = ({item,index}) => {
                 <Image style={{width:appSize(28),height:appSize(28)}} source={require('../../../Assets/Life/class/localIcon.png')} />
             </View>
 
-            <Text style={{color:'#333333',fontSize:appSize(16)}}>{index} 入门课程</Text>
+            <Text style={{color:'#333333',fontSize:appSize(16),fontWeight:'600'}}>{index} 入门课程</Text>
 
             <View style={{flexDirection:'row',gap:appSize(6)}}>
 
@@ -103,6 +103,90 @@ export const renderRow = ({item,index}) => {
             </View>
 
         </TouchableOpacity>
+    </View>)
+}
+
+export const renderRowWaitExam = ({item,index}) => {
+
+    return(<View style={{paddingVertical:appSize(6)}}>
+        <TouchableOpacity onPress={()=>{
+            navigate(ROUTES.CLASS_PLAYER)
+        }} style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'center',paddingVertical:appSize(12),paddingHorizontal:appSize(12),width:'100%',height:appSize(70),borderTopRightRadius:appSize(12),borderTopLeftRadius:appSize(12),backgroundColor:'#fff'}}>
+
+            <View>
+                <Text style={{color:'#333333',fontSize:appSize(16),fontWeight:'600'}}>{index} 入门课程123</Text>
+
+                <View style={{flexDirection:'row',gap:appSize(6),marginTop:appSize(6)}}>
+
+                    <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
+                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+20</Text></Text>
+                    </View>
+
+                    <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
+                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+20</Text></Text>
+                    </View>
+
+                </View>
+            </View>
+
+            <Image style={{height:appSize(24),width:appSize(24)}} source={require('../../../Assets/Life/class/examing.png')} />
+
+
+
+
+
+        </TouchableOpacity>
+
+        <View style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'center',paddingHorizontal:appSize(12),borderBottomRightRadius:appSize(12),borderBottomLeftRadius:appSize(12),height:appSize(40),width:'100%',backgroundColor:'#10B9811A'}}>
+
+            <Text style={{color:'#333333',fontSize:appSize(14),fontWeight:'600'}}>小结考核</Text>
+            <TouchableOpacity style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-end'}}>
+                <Text style={{color:'#10B981',fontSize:appSize(14),fontWeight:'600'}}>前往考核</Text>
+                <Image style={{height:appSize(12),width:appSize(12)}} source={require('../../../Assets/Life/class/goexam.png')} />
+            </TouchableOpacity>
+
+        </View>
+    </View>)
+}
+
+export const renderRowPassExam = ({item,index}) => {
+
+    return(<View style={{paddingVertical:appSize(6)}}>
+
+        <TouchableOpacity onPress={()=>{
+            navigate(ROUTES.CLASS_PLAYER)
+        }} style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'center',paddingVertical:appSize(12),paddingHorizontal:appSize(12),width:'100%',height:appSize(70),borderTopRightRadius:appSize(12),borderTopLeftRadius:appSize(12),backgroundColor:'#fff'}}>
+
+            <View>
+                <Text style={{color:'#333333',fontSize:appSize(16),fontWeight:'600'}}>{index} 入门课程123</Text>
+
+                <View style={{flexDirection:'row',gap:appSize(6),marginTop:appSize(6)}}>
+
+                    <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
+                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+20</Text></Text>
+                    </View>
+
+                    <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
+                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+20</Text></Text>
+                    </View>
+
+                </View>
+            </View>
+
+            <Image style={{height:appSize(24),width:appSize(24)}} source={require('../../../Assets/Life/class/examok.png')} />
+
+
+
+
+
+        </TouchableOpacity>
+
+        <View style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'center',paddingHorizontal:appSize(12),borderBottomRightRadius:appSize(12),borderBottomLeftRadius:appSize(12),height:appSize(40),width:'100%',backgroundColor:'#10B9811A'}}>
+
+            <Text style={{color:'#333333',fontSize:appSize(14),fontWeight:'600'}}>小结考核</Text>
+            <Text style={{color:'#333333',fontSize:appSize(14),fontWeight:'600'}}>已通过</Text>
+
+        </View>
     </View>)
 }
 

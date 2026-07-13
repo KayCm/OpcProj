@@ -46,7 +46,7 @@ export const RowWithText = ({item,index}) => {
 
 
     }} style={{backgroundColor:'#ffffff',justifyContent: 'space-between',borderRadius:appSize(12),width:'100%',height:appSize(108),paddingHorizontal:appSize(12),paddingVertical:appSize(12)}}>
-        <Text numberOfLines={3} style={{lineHeight:appSize(18),color:'#1A1A1A',fontSize:appSize(14),fontWeight:'800'}}>{item?.title}</Text>
+        <Text numberOfLines={3} style={{lineHeight:appSize(18),color:'#1A1A1A',fontSize:appSize(14),fontWeight:'600'}}>{item?.title}</Text>
         <View style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'flex-end'}}>
             <Text style={{color:'#999999',fontSize:appSize(12)}}>发布时间 {item?.updateTime}</Text>
             <View style={{gap:appSize(8),flexDirection:'row',justifyContent: 'flex-end',alignItems:'flex-end'}}>
@@ -78,7 +78,7 @@ export const RowWithTextImg = ({item,index}) => {
         <View style={{backgroundColor:'#ffffff',justifyContent: 'space-between',borderRadius:appSize(12),width:'100%',height:appSize(108),paddingHorizontal:appSize(12),paddingVertical:appSize(12)}}>
 
         <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
-            <Text numberOfLines={3} style={{lineHeight:appSize(18),flex:1,color:'#1A1A1A',fontSize:appSize(14),fontWeight:'800'}}>{item?.title}</Text>
+            <Text numberOfLines={3} style={{lineHeight:appSize(18),flex:1,color:'#1A1A1A',fontSize:appSize(14),fontWeight:'600'}}>{item?.title}</Text>
 
             <Image style={{width:appSize(72),height:appSize(56),backgroundColor:'#123',borderRadius:appSize(4)}}/>
         </View>

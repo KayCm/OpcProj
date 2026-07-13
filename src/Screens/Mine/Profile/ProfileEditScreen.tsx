@@ -4,8 +4,12 @@ import {useSafeAreaInsets} from "react-native-safe-area-context";
 import NavBack from "../../../Assets/Common/NavBack";
 import {goBack} from "../../../Navigator/NavigationService";
 import {MenuBarWithoutIconComp} from "./MenuBarComp";
+import {useSelector} from "react-redux";
+import TurboImage from "react-native-turbo-image";
 
 export default function ProfileEditScreen() {
+
+    const userInfo = useSelector(state => state?.userInfo);
 
     const insets =  useSafeAreaInsets()
 
@@ -29,12 +33,19 @@ export default function ProfileEditScreen() {
 
         <View style={{height:appSize(210),alignItems:'center',paddingTop:appSize(40)}}>
 
-            <ImageBackground style={{height:appSize(104),width:appSize(104)}} imageStyle={{borderRadius:appSize(52),height:appSize(104),width:appSize(104)}} source={require('../../../Assets/demo/avatar.jpg')}>
+            {/*<ImageBackground style={{height:appSize(104),width:appSize(104)}} imageStyle={{borderRadius:appSize(52),height:appSize(104),width:appSize(104)}} source={require('../../../Assets/demo/avatar.jpg')}>*/}
 
-            </ImageBackground>
+            {/*</ImageBackground>*/}
+
+            <View>
+                <TurboImage source={{uri:userInfo?.avatar}}  style={{height:appSize(104),width:appSize(104),borderRadius:appSize(52),borderWidth:appSize(2),borderColor:'#fff'}} imageStyle={{borderRadius:appSize(52),height:appSize(104),width:appSize(104)}} />
+                <View style={{position:'absolute',justifyContent:'center',alignItems:'center',bottom:0,right:0,width:appSize(30),height:appSize(30),borderRadius:appSize(30),backgroundColor:'#000000CC'}} >
+                    <Image style={{width:appSize(20),height:appSize(16.67)}} source={require('../../../Assets/Mine/carmeImg.png')} />
+                </View>
+            </View>
 
             <View style={{marginTop:appSize(15),gap:appSize(4),flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                <Text style={{fontSize:appSize(14),color:'#000'}}>UID:123123123</Text>
+                <Text style={{fontSize:appSize(14),color:'#000'}}>UID:{userInfo?.memberId}</Text>
                 <Image source={require('../../../Assets/Mine/copy.png')} style={{height:appSize(12),width:appSize(12)}} />
             </View>
 
@@ -48,10 +59,10 @@ export default function ProfileEditScreen() {
                 <MenuBarWithoutIconComp title={"昵称"} onPress={()=>{
 
                 }} OtherDom={()=>{
-                    return(<Text style={{color:'#333333',fontSize:appSize(14)}}>Alin</Text>)
+                    return(<Text style={{color:'#333333',fontSize:appSize(14)}}>{userInfo?.nickname}</Text>)
                 }} />
 
-                <MenuBarWithoutIconComp title={"头像"} onPress={()=>{
+                <MenuBarWithoutIconComp title={"性别"} onPress={()=>{
 
                 }} OtherDom={()=>{
                     return(<Text style={{color:'#333333',fontSize:appSize(14)}}>保密</Text>)

@@ -5,6 +5,9 @@
  **/
 import {Platform} from 'react-native'
 import axios from 'axios';
+import {particleState} from "../Redux/persistedReducer";
+import {persistor, store} from "../Redux/store";
+import {navigationRef} from "../Navigator/NavigationService";
 const USER_AGENT_IOS = "Mozilla/5.0 \(iPhone; CPU iPhone OS 9_1 like Mac OS X\) AppleWebKit/601.1.46 \(KHTML, like Gecko\) Version/9.0 Mobile/13B143 Safari/601.1"
 const USER_AGENT_ANDROID = "Mozilla/5.0 \(Linux; Android 6.0.1; SM-C7000 Build/MMB29M; wv\) AppleWebKit/537.36 \(KHTML, like Gecko\) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36 Language/zh_CN"
 export const USER_AGENT = Platform.OS === "ios" ? USER_AGENT_IOS : USER_AGENT_ANDROID
@@ -79,7 +82,7 @@ async function axiosOptsHandler(url: any, params: any, opts: any) {
             ...opts,
         };
 
-        const globalToken = global.token;
+        const globalToken = store.getState()?.appData?.token;
 
         if (globalToken) {
             aoh_opts.headers = {
@@ -182,9 +185,6 @@ function _FETCH(url, param = {}, options = {},showLog=false) {
     }
     let params = {...param} // 避免修改入参param
 
-
-
-
     return new Promise(async (resolve,reject)=>{
 
         const {aoh_opts, aoh_err} = await axiosOptsHandler(url, params, options);
@@ -194,24 +194,17 @@ function _FETCH(url, param = {}, options = {},showLog=false) {
 
         axiosInstance.request(aoh_opts).then((res)=>{
 
-            if (showLog){
-                console.log('NetService------------------->>') //headers  data
-                console.log(url)
-                console.log(aoh_opts.headers)
-                console.log(params)
-                console.log(res.data)
-                console.log('<<-------------------NetService')
-            }
-            //if (res?.data?.code == 200){
+
+            if (res?.data?.code == 200){
                 const {data} = res;
                 const {rh_res, rh_err} = responseHandler(data);
                 if (rh_err) return reject(rh_err);
                 resolve(rh_res);
-            //}else{
-                // console.log('navigationRef',navigationRef)
-                // navigationRef.current?.navigate('Login')
-                // navigationRef.dispatch(StackActions.replace('Login'));
-            //}
+            }else{
+                console.log('navigationRef',navigationRef)
+                store.getState()?.logout()
+                navigationRef.current?.navigate('Login')
+            }
         }).catch((err)=>{
 
             // const {errMsg} = errorHandler(err);

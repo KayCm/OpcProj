@@ -61,9 +61,13 @@ function ActicityApplyScreen() {
             <ScrollView>
             <View style={{paddingHorizontal:appSize(16)}}>
 
-                <View style={{flexDirection:'row',alignItems:'center',gap:appSize(16),marginTop:appSize(12),height:appSize(50),backgroundColor:'#fff',width:'100%',borderRadius:appSize(8),paddingHorizontal:appSize(16),paddingVertical:appSize(12)}}>
+                <View style={{flexDirection:'row',alignItems:'center',gap:appSize(16),marginTop:appSize(12),backgroundColor:'#fff',width:'100%',borderRadius:appSize(8),paddingHorizontal:appSize(16),paddingVertical:appSize(12)}}>
                     <Text style={{color:'#333333',fontSize:appSize(14),fontWeight:'600'}}><Text style={{color:'#FF4040',fontSize:appSize(14),fontWeight:'600'}}>*</Text>姓名</Text>
-                    <TextInput placeholder={'请输入姓名'} placeholderTextColor={'#CCCCCC'} style={{flex:1,height:appSize(44),backgroundColor:''}} />
+
+                    <View style={{flex:1,height: 50, justifyContent: 'center' }}>
+                        <TextInput placeholder={'请输入姓名'} placeholderTextColor={'#CCCCCC'} style={{ padding: 0,height:appSize(40),textAlignVertical: 'center',alignItems:'center',justifyContent:'center',backgroundColor:'red'}} />
+                    </View>
+
                 </View>
 
                 <View style={{flexDirection:'row',alignItems:'center',gap:appSize(8),marginTop:appSize(12),height:appSize(50),backgroundColor:'#fff',width:'100%',borderRadius:appSize(8),paddingHorizontal:appSize(16),paddingVertical:appSize(12)}}>

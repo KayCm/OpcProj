@@ -3,6 +3,7 @@ import {Image, ImageBackground, Text, TouchableOpacity, View} from "react-native
 import {navigate} from "../../../Navigator/NavigationService";
 import {ROUTES} from "../../../Components/Constant";
 import React from "react";
+import TurboImage from "react-native-turbo-image";
 
 export const TopToolsBar = ({onPress1,onPress2,onPress3}) => {
 
@@ -22,18 +23,20 @@ export const TopToolsBar = ({onPress1,onPress2,onPress3}) => {
 
 }
 
-export const InfoCard = () => {
+export const InfoCard = ({userInfo}) => {
+
+    console.log(userInfo)
 
     return(<View style={{paddingHorizontal:appSize(16)}}>
         <View style={{marginTop:appSize(18),paddingVertical:appSize(16),borderTopLeftRadius:appSize(12),borderTopRightRadius:appSize(12),width:'100%',height:appSize(158),backgroundColor:'#fff'}}>
 
             <TouchableOpacity style={{position:'absolute',top:appSize(-12),left:appSize(16)}}>
-                <Image source={require('../../../Assets/demo/avatar.jpg')} style={{borderWidth:2,borderColor:'#ffffff',width:appSize(76),height:appSize(76),borderRadius:appSize(38),backgroundColor:'#123'}} />
+                <TurboImage source={{uri:userInfo?.avatar}} style={{borderWidth:2,borderColor:'#ffffff',width:appSize(76),height:appSize(76),borderRadius:appSize(38),backgroundColor:'#f7f7f7'}} />
             </TouchableOpacity>
             <View style={{paddingLeft:appSize(16+76+12)}}>
 
                 <View style={{flexDirection:'row',alignItems:'center',gap:appSize(10)}}>
-                    <Text style={{color:'#1A1A1A',fontSize:appSize(18),fontWeight:'800'}}>用户名称</Text>
+                    <Text style={{color:'#1A1A1A',fontSize:appSize(18),fontWeight:'800'}}>{userInfo?.nickname}</Text>
                     <View style={{paddingLeft:appSize(18),flexDirection:'row',backgroundColor:'#FBEFFF',borderRadius:appSize(25),width:appSize(50),height:appSize(18)}}>
                         <Image source={require('../../../Assets/Mine/level/1.png')}
                                style={{position:'absolute',top:appSize(-4),left:appSize(-4),width:appSize(21),height:appSize(23)}} />
@@ -42,7 +45,7 @@ export const InfoCard = () => {
                 </View>
 
                 <View style={{flexDirection:'row',alignItems:'center',marginTop:appSize(4),gap:appSize(4)}}>
-                    <Text style={{color:'#999999',fontSize:appSize(12)}}>ID：3468594</Text>
+                    <Text style={{color:'#999999',fontSize:appSize(12)}}>ID：{userInfo?.memberId}</Text>
                     <TouchableOpacity>
                         <Image source={require('../../../Assets/Mine/copy.png')} style={{width:appSize(12),height:appSize(12)}} />
                     </TouchableOpacity>

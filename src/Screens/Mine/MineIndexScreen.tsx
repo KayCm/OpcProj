@@ -13,6 +13,7 @@ import {
     InfoUnLoginCard,
     TopToolsBar
 } from "./Components";
+import {useSelector} from "react-redux";
 
 const medals = [
     {name:'AI电商达人',img:require('../../Assets/Mine/medal/medal_icon1.png')},
@@ -31,23 +32,21 @@ export default function MineIndexScreen() {
 
     const insets =  useSafeAreaInsets()
 
+    const userInfo = useSelector(state => state?.userInfo);
+    const appData = useSelector(state => state?.appData);
+
     return(<View style={{flex:1,backgroundColor:"",paddingTop:0}}>
         <Image source={require('../../Assets/Mine/prosonBg.png')} style={{left:appSize(-70),position:'absolute',width:'120%',height:appSize(400)}} />
         <ScrollView showsHorizontalScrollIndicator={false}
                     showsVerticalScrollIndicator={false}>
             <View style={{paddingBottom:appSize(110)}}>
-                {/*<View source={{}} style={{paddingTop:insets.top+appSize(10)}} >*/}
                 <View style={{height:insets.top+appSize(10)}} />
                 <TopToolsBar onPress1={()=>{}} onPress2={()=>{}} onPress3={()=>{
                         navigate(ROUTES.PROFILE_SRC)
                     }} />
-                {/*<InfoCard />*/}
-                <InfoUnLoginCard loginPress={()=>{
-                    navigate(ROUTES.LOGIN)
-                }} />
+                {userInfo?.memberId ? <InfoCard userInfo={userInfo} /> : <InfoUnLoginCard loginPress={()=>{navigate(ROUTES.LOGIN)}} /> }
                 <View style={{height:appSize(12)}} />
-                {/*<GrowthCenterCard medals={medals} missions={missions} />*/}
-                <GrowthCenterUnLoginCard medals={medals} missions={missions} />
+                {userInfo?.memberId ? <GrowthCenterCard medals={medals} missions={missions} /> : <GrowthCenterUnLoginCard medals={medals} missions={missions} />}
                 <View style={{height:appSize(12)}} />
                 <FunctionsCard />
             </View>

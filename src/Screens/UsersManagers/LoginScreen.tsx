@@ -7,6 +7,7 @@ import GStyles, {appSize, TRUE_ONE_LINE, WINDOW_HEIGHT, WINDOW_WIDTH} from "../.
 import {LOGIN_BG_NORMORL, LOGIN_BG_SPECIAL} from "../../Components/Constant";
 import Toast from 'react-native-root-toast';
 import {LoginViewModel} from "./LoginViewModel";
+import {useSelector} from "react-redux";
 
 export default function LoginScreen() {
 
@@ -19,7 +20,9 @@ export default function LoginScreen() {
     const [agree,setAgree] = useState(false)
 
 
-  return (
+
+
+    return (
       <LinearGradient
           colors={LOGIN_BG_NORMORL}
           start={{ x: 0.5, y: 0 }}
@@ -151,7 +154,9 @@ export default function LoginScreen() {
                                  placeholderTextColor={'#CCCCCC'}
                                  style={{flex:1,backgroundColor:''}} />
                     </View>
-                    <TouchableOpacity style={{justifyContent:'center',alignItems:'center',marginTop:appSize(35),backgroundColor:'#10B981',width:'100%',height:appSize(44),borderRadius:appSize(22)}}>
+                    <TouchableOpacity onPress={()=>{
+                        loginAct()
+                    }} style={{justifyContent:'center',alignItems:'center',marginTop:appSize(35),backgroundColor:'#10B981',width:'100%',height:appSize(44),borderRadius:appSize(22)}}>
                       <Text style={{color:'#fff',fontSize:appSize(18),fontWeight:'600'}}>立即登录</Text>
                     </TouchableOpacity>
                   </View>

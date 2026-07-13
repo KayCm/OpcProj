@@ -8,7 +8,7 @@ import React, {useRef, useState} from "react";
 import WebView from "react-native-webview";
 import PagerView from "react-native-pager-view";
 import DataList from "../../../Components/DataList";
-import {Header, renderRow} from "./Component";
+import {Header, renderRow, renderRowPassExam, renderRowWaitExam} from "./Component";
 
 export default function ClassDetailScreen() {
 
@@ -64,7 +64,7 @@ export default function ClassDetailScreen() {
 
                 <DataList
                     key={1}
-                    renderRow={renderRow}
+                    renderRow={renderRowPassExam}
                     url={'/open-api/mobile/home/material/normal/list'}
                     params={{}}
                     queryKey={'normal-list'}

@@ -5,12 +5,12 @@ import GStyles, {appSize, NAVIGATOR_HEIGHT, TRUE_ONE_LINE} from "../../Component
 import {useQuery} from "@tanstack/react-query";
 import {useRef} from "react";
 import {R_POST} from "../../Services/NetRequestService";
+import {goBack} from "../../Navigator/NavigationService";
 
 function Detail(props: any) {
 
     // const nav = useNavigation()
 
-    const Nav = props?.navigation
     const item = props?.route?.params?.item
 
     const insets = useSafeAreaInsets();
@@ -105,7 +105,7 @@ function Detail(props: any) {
     </script>
     </head>
     <body>
-    `+data?.data?.content+`</body></html>`;
+    `+data?.data?.content+`<div style="height:50px"></div> </body></html>`;
     const title= data?.data?.title
     const author = data?.data?.author
     const createTime= data?.data?.createTime
@@ -123,19 +123,18 @@ function Detail(props: any) {
         `);
     };
 
-    const DetailHeader = () => {
-        const insets = useSafeAreaInsets()
-        return(<View style={{height:insets.top+NAVIGATOR_HEIGHT,width:'100%',paddingTop:insets.top,backgroundColor:'#ffffff',borderBottomColor:'#00000000',borderBottomWidth:TRUE_ONE_LINE}}>
-            <View style={[GStyles.row,GStyles.ac,GStyles.jcBetween,GStyles.ph12,{height:NAVIGATOR_HEIGHT,width:'100%'}]}>
+
+    const Nav = () => {
+        return(<View style={{height:insets.top+appSize(44),width:'100%',backgroundColor:'#fff'}} >
+            <View style={{height:insets.top}} />
+            <View style={[GStyles.row,GStyles.ac,GStyles.jcBetween,GStyles.ph16,{height:appSize(44),width:'100%'}]}>
                 <TouchableOpacity onPress={()=>{
-                    Nav.goBack()
-                }}>
-                    <Image source={require('../../Assets/Common/NavBack')} style={{width:appSize(24),height:appSize(24)}} />
+                    goBack()
+                }}  style={{justifyContent:'center',width:appSize(44),height:appSize(44)}}>
+                    <Image source={require('../../Assets/Common/nav_back.png')} style={{height:appSize(14),width:appSize(14)}} />
                 </TouchableOpacity>
-                <View style={{width:appSize(24)}} />
-                {/*<TouchableOpacity style={[GStyles.jc,GStyles.ac,{width:32,height:32}]}>*/}
-                {/*    <Image source={require('../../../Assets/News/detail/detail_more.png')} style={{width:appSize(24),height:appSize(24)}} />*/}
-                {/*</TouchableOpacity>*/}
+                <Text numberOfLines={1}  style={{width:'50%',color:'#1A1A1A',fontWeight:'600',fontSize:appSize(17)}}>{data?.data?.title}</Text>
+                <View style={{width:appSize(44)}} />
             </View>
         </View>)
     }
@@ -188,7 +187,7 @@ function Detail(props: any) {
     }
 
     return (<View style={{ flex: 1,backgroundColor:'#fff'}}>
-        <DetailHeader />
+        <Nav />
 
         <DetailWithHtml />
 
@@ -219,5 +218,12 @@ function Detail(props: any) {
         {/*<VipBanner />*/}
     </View>);
 }
+
+
+
+
+
+
+
 
 export default Detail;

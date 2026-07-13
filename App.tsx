@@ -16,8 +16,8 @@ import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client
 import {asyncStoragePersister} from "./src/Components/Storage";
 import {QueryClient} from "@tanstack/react-query";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
-
+import { Provider } from 'react-redux';
+import { store} from './src/Redux/store'
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -44,10 +44,12 @@ function App() {
                   // 可以在这里实现错误恢复逻辑
               }}
           >
+              <Provider store={store}>
                     <RootSiblingParent>
                         {/*<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />*/}
                         <AppNavigator/>
                     </RootSiblingParent>
+              </Provider>
           </PersistQueryClientProvider>
         </SafeAreaProvider>
     </GestureHandlerRootView>);

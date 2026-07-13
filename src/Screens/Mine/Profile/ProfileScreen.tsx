@@ -3,9 +3,11 @@ import {useSafeAreaInsets} from "react-native-safe-area-context";
 import GStyles, {appSize} from "../../../Components/GStyles";
 import Arrow from "../../../Assets/Profile/Arrow";
 import NavBack from "../../../Assets/Common/NavBack";
-import {goBack, navigate} from "../../../Navigator/NavigationService";
+import {goBack, navigate, resetToMain} from "../../../Navigator/NavigationService";
 import {ROUTES} from "../../../Components/Constant";
 import {MenuBarComp} from "./MenuBarComp";
+import {logout} from "../../../Redux/persistedReducer";
+import {useDispatch} from "react-redux";
 
 
 const proMeunsArr1 = [
@@ -27,6 +29,8 @@ const proMeunsArr2 = [
 function ProfileScreen() {
 
     const insets =  useSafeAreaInsets()
+
+    const dispatch = useDispatch()
 
     // const ClickBar = ({icon,title,onPress}) => {
     // <View style={{backgroundColor:'#123',width:appSize(22),height:appSize(22)}} />
@@ -78,8 +82,11 @@ function ProfileScreen() {
             </View>
 
 
-            <TouchableOpacity style={{width:'100%',backgroundColor:'#ffffff',marginTop:appSize(12),borderRadius:appSize(8)}}>
-
+            <TouchableOpacity onPress={()=>{
+                dispatch(logout(null));
+                resetToMain()
+            }} style={{justifyContent:'center',alignItems:'center',width:'100%',height:appSize(50),backgroundColor:'#ffffff',marginTop:appSize(50),borderRadius:appSize(8)}}>
+                <Text style={{color:'#333333',fontWeight:'600',fontSize:appSize(14)}}>退出登录</Text>
             </TouchableOpacity>
 
         </ScrollView>
