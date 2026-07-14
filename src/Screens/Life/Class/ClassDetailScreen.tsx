@@ -1,150 +1,63 @@
-import {Image, TouchableOpacity, View, Text, ImageBackground} from "react-native";
+import {Image, TouchableOpacity, View, Text, ImageBackground, Pressable, Modal} from "react-native";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 import GStyles, {appSize, WINDOW_HEIGHT} from "../../../Components/GStyles";
-import {goBack} from "../../../Navigator/NavigationService";
-// import {useVideoPlayer, VideoView} from "react-native-video";
-// import {VideoViewRef} from "react-native-video/src/core/video-view/VideoViewProps";
 import React, {useRef, useState} from "react";
-import WebView from "react-native-webview";
-import PagerView from "react-native-pager-view";
-import DataList from "../../../Components/DataList";
-import {Header, renderRow, renderRowPassExam, renderRowWaitExam} from "./Component";
+import {ClassSummary, Header, MenuBar,PillTabBar, RecProj, renderRow, renderRowPassExam, renderRowWaitExam} from "./Component";
+import {TabBarRenderProps, Tabs} from 'react-native-collapsible-tab';
+
+
+
+
+
 
 export default function ClassDetailScreen() {
+    const insets =  useSafeAreaInsets()
 
-    const [classDetailType,setClassDetailType] = useState(1)
+    const [isModalVisible,setModalVisible] = useState(false)
 
-    const [showMore,setShowMore] = useState(false)
+    return(<View style={{flex:1,backgroundColor:'#f7f7f7'}}>
+        <View style={{height:insets.top,width:'100%',backgroundColor:'#fff'}} />
+        <Tabs.Container renderHeader={() => <Header />}  renderTabBar={(props)=><PillTabBar {...props}/>}>
+            <Tabs.Tab name="summary" label="课程简介">
+                <Tabs.ScrollView>
+                    <View style={{backgroundColor:'#f7f7f7', paddingHorizontal:appSize(16),paddingBottom:appSize(24)}} contentContainerStyle={{ flexGrow: 1 }}>
+                        <ClassSummary />
+                        <Text style={{paddingTop:appSize(16),paddingBottom:appSize(6),fontSize:appSize(16),fontWeight:'600',color:'#000'}}>推荐项目</Text>
+                        <RecProj />
+                    </View>
+                </Tabs.ScrollView>
+            </Tabs.Tab>
+            <Tabs.Tab name="list" label="课程列表">
+                <Tabs.FlatList style={{paddingHorizontal:appSize(16),backgroundColor:'#f7f7f7'}} data={[1,2,3,4,5,6,7,8,8,9]} renderItem={renderRowWaitExam} />
+            </Tabs.Tab>
+        </Tabs.Container>
 
-    const webViewRef = useRef(null)
-
-    // const VideoViewRef = useRef<VideoViewRef>(null);
-
-    // const insets =  useSafeAreaInsets()
-
-
-    // const player = useVideoPlayer(
-    //     'https://www.w3schools.com/html/mov_bbb.mp4',
-    //     (_player) => {
-    //         _player.play();
-    //     }
-    // );
-
-
-    var headerHtml = `<div></div>`
-
-    const injectScript = () => {
-        webViewRef.current.injectJavaScript(`
-          (function() {
-            const titleBar = document.createElement('div');
-            titleBar.id = 'injected-header';
-            titleBar.innerHTML = '`+headerHtml+`';
-            document.body.insertBefore(titleBar, document.body.firstChild);
-          })();
-        `);
-    };
-
-
-    return(<View style={{flex:1,backgroundColor:""}}>
-
-        <Header />
-
-
-
-        <View style={{paddingHorizontal:appSize(16),flex:1,width:'100%',marginBottom:appSize(20)}}>
-
-
-            <PagerView
-                onPageSelected={e => {
-                    //const position = e.nativeEvent.position;
-                    //menuRef.current?.switchToTab(position);
-                }}
-                style={{ flex: 1, backgroundColor: '' }}>
-
-
-                <DataList
-                    key={1}
-                    renderRow={renderRowPassExam}
-                    url={'/open-api/mobile/home/material/normal/list'}
-                    params={{}}
-                    queryKey={'normal-list'}
-                    onScroll={()=>{
-                        console.log("###############")
-                        setShowMore(false)
-                    }}
-                />
-
-
-                <View style={{borderRadius:appSize(12),paddingVertical:appSize(16),paddingHorizontal:appSize(12),overflow: 'hidden',backgroundColor:'#ffffff',flex:1}}>
-
-                    <WebView source={{ html:'课程主题：正确面对负面情绪，与内心温柔和解\n' +
-                            '\n' +
-                            '生活里的焦虑、内耗、压抑几乎人人都有：工作压力带来彻夜难眠，人际关系让你反复精神紧绷，莫名烦躁、情绪低落、陷入自我否定，明明不想胡思乱想，却控制不住被负面情绪裹挟。长期堆积的情绪内耗，正在悄悄消耗你的精力、睡眠与生活幸福感。\n' +
-                            '\n' +
-                            '这套心灵疗愈课程专为被焦虑困扰的你打造，不用复杂心理学基础，通俗易懂、落地实用，已有 85 位学员同步学习，跟着课程一步步梳理情绪、治愈内心。\n' +
-                            '\n' +
-                            '课程亮点\n' +
-                            '\n' +
-                            '✅ 通俗化讲解，避开晦涩专业术语，零基础也能轻松听懂\n' +
-                            '✅ 方法落地，日常通勤、睡前、休息间隙都能练习\n' +
-                            ' ✅ 聚焦真实情绪痛点，针对性解决焦虑、内耗、低落等问题\n' +
-                            ' ✅ 轻量学习模式，碎片化时间即可完成自我心灵疏导'}}
-                             ref={webViewRef}
-                             onLoad={injectScript}
-                             showsHorizontalScrollIndicator={false}
-                             showsVerticalScrollIndicator={false}
-                             style={{ flex: 1,borderRadius:appSize(12),overflow: 'hidden',backgroundColor:'', width: '100%' }}
-                        // injectedJavaScript={injectTitleScript}
-                             originWhitelist={['*']}
-                             javaScriptEnabled={true}
-                             domStorageEnabled={true}
-                             onScroll={()=>{
-
-                                 console.log("###############")
-                                 setShowMore(false)
-                             }}
-                    />
-
+        <View style={{backgroundColor:'#fff',width:'100%',height:appSize(56)+insets.bottom}}>
+            <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingHorizontal:appSize(16),height:appSize(56),backgroundColor:'#fff',width:'100%'}}>
+                <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',gap:appSize(2)}}>
+                    <Text style={{color:'#FFA059',fontSize:appSize(20)}}>¥899.99</Text>
+                    <Text style={{color:'#999999',fontSize:appSize(12),textDecorationLine: 'line-through'}}>¥1258.00</Text>
                 </View>
-
-
-            </PagerView>
-
-
-
-
+                <TouchableOpacity onPress={()=>{
+                    // setModalVisible(true)
+                }} style={{backgroundColor:'#10B981',width:appSize(172),height:appSize(44),borderRadius:appSize(22),flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                    <Text style={{color:'#fff',fontSize:appSize(17)}}>立即购买</Text>
+                </TouchableOpacity>
+            </View>
         </View>
 
 
 
-        {/*<Nav />*/}
+        {/*<Modal*/}
+        {/*    style={{margin: 0}}*/}
+        {/*    isVisible={false}*/}
+        {/*    onSwipeComplete={() => setModalVisible(false)}*/}
+        {/*    swipeDirection="left">*/}
+        {/*    <View style={{flex: 1}}>*/}
+        {/*        <Text>I am the modal content!</Text>*/}
+        {/*    </View>*/}
+        {/*</Modal>*/}
 
-        {/*<View style={{width:'100%',height:'100%',backgroundColor:'#123'}}>*/}
-
-
-            {/*<VideoView*/}
-            {/*    ref={VideoViewRef}*/}
-            {/*    player={player}*/}
-            {/*    style={{ width:'100%',*/}
-            {/*        aspectRatio:   16/9,*/}
-            {/*    }}*/}
-            {/*    controls*/}
-            {/*/>*/}
-
-
-        {/*</View>*/}
-
-        {/*<VideoView*/}
-        {/*    ref={VideoViewRef}*/}
-        {/*    player={player}*/}
-        {/*    style={{ width:WINDOW_HEIGHT,*/}
-        {/*        aspectRatio:   16/9,*/}
-        {/*        backgroundColor:'#123',*/}
-        {/*        transform: [{rotate: '270deg'}]}}*/}
-
-        {/*    controls*/}
-        {/*/>*/}
 
     </View>)
-
 }

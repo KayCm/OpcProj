@@ -153,5 +153,16 @@ const STYLE = StyleSheet.create({
     pv30: {
         paddingVertical: appSize(30)
     },
+    shadowContainer: {
+        boxShadow: [
+            {
+                offsetX: 0,
+                offsetY: 4,
+                blurRadius: 8,
+                spreadDistance: 0,
+                color: 'rgba(0, 0, 0, 0.3)',
+            },
+        ],
+    }
 });
 export default STYLE

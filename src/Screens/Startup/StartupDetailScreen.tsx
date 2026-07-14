@@ -1,10 +1,11 @@
 import {Image, ImageBackground, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import GStyles, {appSize} from "../../Components/GStyles";
-import {goBack} from "../../Navigator/NavigationService";
+import {goBack, navigate} from "../../Navigator/NavigationService";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 import React, {useState} from "react";
 import { SizedWebView } from 'react-native-sized-webview';
 import { WebView } from 'react-native-webview';
+import {ROUTES} from "../../Components/Constant";
 
 export default function StartupDetailScreen() {
 
@@ -168,20 +169,22 @@ export default function StartupDetailScreen() {
                             <Image source={require('../../Assets/Startup/select_off.png')} style={{height:appSize(18),width:appSize(18)}} />
                             <Text style={{color:'#333333',fontSize:appSize(14)}}>完成AI剪辑课程</Text>
                         </View>
-                        <TouchableOpacity style={{justifyContent:'center',alignItems:'center',borderRadius:appSize(20),borderWidth:1,borderColor:'#10B981',height:appSize(33),paddingHorizontal:appSize(12)}}>
+                        <TouchableOpacity onPress={()=>{
+                            navigate(ROUTES.CLASS_DETAIL)
+                        }} style={{justifyContent:'center',alignItems:'center',borderRadius:appSize(20),borderWidth:1,borderColor:'#10B981',height:appSize(33),paddingHorizontal:appSize(12)}}>
                             <Text style={{color:'#10B981',fontSize:appSize(12)}}>去订阅</Text>
                         </TouchableOpacity>
                     </View>
 
-                    <View style={{marginTop:appSize(12),flex:1,justifyContent:'space-between',flexDirection:'row',alignItems:'center',height:appSize(33)}}>
-                        <View style={{flexDirection:'row',alignItems:'center',gap:appSize(6),borderRadius:appSize(8),backgroundColor:'#F7F7F7',paddingHorizontal:appSize(12),justifyContent:'center',height:appSize(33)}}>
-                            <Image source={require('../../Assets/Startup/select_on.png')} style={{height:appSize(18),width:appSize(18)}} />
-                            <Text style={{color:'#333333',fontSize:appSize(14)}}>完成AI剪辑课程</Text>
-                        </View>
-                        <TouchableOpacity style={{justifyContent:'center',alignItems:'center',borderRadius:appSize(20),borderWidth:1,borderColor:'#10B981',height:appSize(33),paddingHorizontal:appSize(12)}}>
-                            <Text style={{color:'#10B981',fontSize:appSize(12)}}>去订阅</Text>
-                        </TouchableOpacity>
-                    </View>
+                    {/*<View style={{marginTop:appSize(12),flex:1,justifyContent:'space-between',flexDirection:'row',alignItems:'center',height:appSize(33)}}>*/}
+                    {/*    <View style={{flexDirection:'row',alignItems:'center',gap:appSize(6),borderRadius:appSize(8),backgroundColor:'#F7F7F7',paddingHorizontal:appSize(12),justifyContent:'center',height:appSize(33)}}>*/}
+                    {/*        <Image source={require('../../Assets/Startup/select_on.png')} style={{height:appSize(18),width:appSize(18)}} />*/}
+                    {/*        <Text style={{color:'#333333',fontSize:appSize(14)}}>完成AI剪辑课程</Text>*/}
+                    {/*    </View>*/}
+                    {/*    <TouchableOpacity style={{justifyContent:'center',alignItems:'center',borderRadius:appSize(20),borderWidth:1,borderColor:'#10B981',height:appSize(33),paddingHorizontal:appSize(12)}}>*/}
+                    {/*        <Text style={{color:'#10B981',fontSize:appSize(12)}}>去订阅</Text>*/}
+                    {/*    </TouchableOpacity>*/}
+                    {/*</View>*/}
 
                 </View>
 

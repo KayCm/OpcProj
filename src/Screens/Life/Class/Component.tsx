@@ -1,10 +1,11 @@
-import {Image, ImageBackground, Text, TouchableOpacity, View} from "react-native";
+import {Image, ImageBackground, Pressable, Text, TouchableOpacity, View} from "react-native";
 import GStyles, {appSize} from "../../../Components/GStyles";
 import {goBack, navigate} from "../../../Navigator/NavigationService";
 import React, {useState} from "react";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 import {ROUTES} from "../../../Components/Constant";
 import WebView from "react-native-webview";
+import {TabBarRenderProps} from "react-native-collapsible-tab";
 
 export const Header = () => {
 
@@ -39,7 +40,7 @@ export const Header = () => {
             <Text style={{color:'#fff',fontSize:appSize(14)}}>85人已学习</Text>
         </View>
 
-        <View style={{marginTop:appSize(230),paddingVertical:appSize(16),paddingHorizontal:appSize(12),borderRadius:appSize(12),width:appSize(361),backgroundColor:'#fff'}}>
+        <View style={[GStyles.boxShadow,{marginTop:appSize(230),paddingVertical:appSize(16),paddingHorizontal:appSize(12),borderRadius:appSize(12),width:appSize(361),backgroundColor:'#fff'}]}>
 
 
             <View style={{flexDirection:'row',width:'100%',height:appSize(44)}}>
@@ -190,8 +191,10 @@ export const renderRowPassExam = ({item,index}) => {
     </View>)
 }
 
-
-export const MenuBar = () => {
+export const MenuBar = ({tabNames,
+                            tabLabels,
+                            activeIndex,
+                            onTabPress}) => {
 
     // const insets =  useSafeAreaInsets()
 
@@ -215,6 +218,98 @@ export const MenuBar = () => {
   </View>)
 }
 
+export const ClassSummary =()=>{
+    return(<View style={[{backgroundColor:'#fff',borderRadius:appSize(12),paddingVertical:appSize(16),paddingHorizontal:appSize(12)}]}>
+        <Text style={{fontWeight:'600',fontSize:appSize(14),color:'#000'}}>课程主题：AI剪辑+自动化电商全解</Text>
+        <Text style={{fontSize:appSize(14),color:'#666',marginTop:appSize(20)}}>谁适合来学这门课？
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+        </Text>
+    </View>)
+}
+
+export const RecProj = () => {
+
+    return(<View style={{backgroundColor:'#fff',borderRadius:appSize(12),paddingVertical:appSize(16),paddingHorizontal:appSize(12)}}>
+
+        <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+            <Text style={{fontWeight:'600',fontSize:appSize(14),color:'#333333'}}>AI漫剧自动化</Text>
+            <Text style={{fontWeight:'600',fontSize:appSize(14),color:'#FFA059'}}>¥ 1000起</Text>
+        </View>
+        <View style={{flexDirection:'row',alignItems:'center',marginTop:appSize(4)}}>
+            <Text style={{color:'#999999',fontSize:appSize(12)}}>项目</Text>
+        </View>
+
+        <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',gap:appSize(4),marginTop:appSize(8)}} >
+            <View>
+                <View style={{flexDirection:'row',gap:appSize(4),paddingVertical:appSize(4),paddingHorizontal:appSize(8),backgroundColor:'#F7F7F7',borderRadius:appSize(4),alignItems:'center'}} >
+                    <Image style={{width:appSize(15),height:appSize(15)}} source={require('../../../Assets/Startup/hugeicon.png')} />
+                    <Text style={{color:'#666666',fontSize:appSize(12)}}>项目人数：20 人 | 截止 06-15</Text>
+                </View>
+            </View>
+
+            <TouchableOpacity onPress={()=>{
+                navigate(ROUTES.STARTUP_DETAIL)
+            }}  style={{borderColor:'#10B981',borderRadius:appSize(20),borderWidth:1,paddingHorizontal:appSize(12),paddingVertical:appSize(4),justifyContent:'center',alignItems:'center'}}>
+                <Text style={{color:'#10B981'}}>立即加入</Text>
+            </TouchableOpacity>
+        </View>
+
+    </View>)
+}
+
+export const PillTabBar = ({tabNames,
+                      tabLabels,
+                      activeIndex,
+                      onTabPress,}: TabBarRenderProps) => {
+
+    return (
+        <View style={{flexDirection:'row',backgroundColor:'#f7f7f7',alignItems:'flex-end',paddingBottom:appSize(10),gap:appSize(16),paddingHorizontal:appSize(16),height:appSize(50),width:'100%'}}>
+            {tabNames.map((name, i) => {
+                const focused = i === activeIndex;
+                return (
+                    <Pressable
+                        key={name}
+                        accessibilityRole="tab"
+                        accessibilityState={{ selected: focused }}
+                        style={[{justifyContent:'center',alignItems:'center',gap:appSize(3)}, focused && {}]}
+                        onPress={() => onTabPress(name)}>
+                        <Text style={[{color:'#909090'}, focused && {color:'#000',fontWeight:'600'}]}>
+                            {tabLabels[name] ?? name}
+                        </Text>
+                        <View style={{backgroundColor:focused?'#10B981':'',borderRadius:appSize(10),width:appSize(30),height:appSize(3)}} />
+                    </Pressable>
+                );
+            })}
+        </View>
+    );
+}
 
 export const ReSizeWebView = () => {
 

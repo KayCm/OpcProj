@@ -247,11 +247,11 @@ const styles = StyleSheet.create({
         // 使用 boxShadow 属性
         boxShadow: [
             {
-                offsetX: 0,          // 水平偏移
-                offsetY: 4,          // 垂直偏移
-                blurRadius: 8,       // 模糊半径
-                spreadDistance: 0,   // 扩散距离
-                color: 'rgba(0, 0, 0, 0.3)', // 阴影颜色
+                offsetX: 0,
+                offsetY: 4,
+                blurRadius: 8,
+                spreadDistance: 0,
+                color: 'rgba(0, 0, 0, 0.3)',
             },
         ],
     },
