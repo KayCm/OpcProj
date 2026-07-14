@@ -26,6 +26,7 @@ export const ROUTES = {
 
     CLASS_DETAIL:'classDetail',
     CLASS_PLAYER:'classPlayer',
+    ClASS_EXAM:'classExam',
 
     STARTUP_DETAIL:'StartupDetail',
     OPPORTUNITY_LIST:'OpportunityList',

@@ -25,6 +25,7 @@ import StartupDetailScreen from "../Screens/Startup/StartupDetailScreen";
 import Detail from "../Screens/Home/Detail";
 import PlayerScreen from "../Screens/Life/Class/PlayerScreen";
 import OpportunityListScreen from "../Screens/Startup/OpportunityListScreen";
+import ExamScreen from "../Screens/Life/Class/ExamScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +44,7 @@ export default function AppNavigator() {
                 {/*Class*/}
                 <Stack.Screen name={ROUTES.CLASS_DETAIL} component={ClassDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
                 <Stack.Screen name={ROUTES.CLASS_PLAYER} component={PlayerScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+                <Stack.Screen name={ROUTES.ClASS_EXAM} component={ExamScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
 
                 {/* STARTUP */}
                 <Stack.Screen name={ROUTES.STARTUP_DETAIL} component={StartupDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />

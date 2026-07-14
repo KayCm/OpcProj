@@ -97,8 +97,7 @@ export default function HomeIndexScreen() {
     const HomeHeader = () => {
 
         return(<View style={{width:'100%',alignItems:'center',backgroundColor:'',height:appSize(401)}}>
-            <ImageBackground source={require('../../Assets/demo/demo2.png')} style={{position:'absolute',backgroundColor:'red',width:'100%',height:appSize(280)}} >
-
+            <ImageBackground source={require('../../Assets/demo/demo2.png')} style={{position:'absolute',backgroundColor:'',width:'100%',height:appSize(280)}} >
 
                 <View style={{marginTop:appSize(100),flexDirection:'row',gap:appSize(16),paddingHorizontal:appSize(16),height:appSize(28),width:'100%'}} >
                     <TouchableOpacity onPress={()=>{
