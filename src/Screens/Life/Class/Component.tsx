@@ -141,7 +141,9 @@ export const renderRowWaitExam = ({item,index}) => {
         <View style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'center',paddingHorizontal:appSize(12),borderBottomRightRadius:appSize(12),borderBottomLeftRadius:appSize(12),height:appSize(40),width:'100%',backgroundColor:'#10B9811A'}}>
 
             <Text style={{color:'#333333',fontSize:appSize(14),fontWeight:'600'}}>小结考核</Text>
-            <TouchableOpacity style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-end'}}>
+            <TouchableOpacity onPress={()=>{
+                navigate(ROUTES.ClASS_EXAM)
+            }} style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-end'}}>
                 <Text style={{color:'#10B981',fontSize:appSize(14),fontWeight:'600'}}>前往考核</Text>
                 <Image style={{height:appSize(12),width:appSize(12)}} source={require('../../../Assets/Life/class/goexam.png')} />
             </TouchableOpacity>

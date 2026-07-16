@@ -45,7 +45,7 @@ import React, {
     ForwardedRef,
     useState,
     useCallback,
-    useMemo,
+    useMemo, useEffect,
 } from "react";
 import {Text, View, Switch, StyleSheet, TouchableOpacity, Image, ImageBackground} from "react-native";
 import { FlashList, type FlashListRef } from "@shopify/flash-list";
@@ -54,6 +54,7 @@ import {useSafeAreaInsets} from "react-native-safe-area-context";
 import {Card, LongCard,ClassCard} from "./Components/Rows";
 import {navigate} from "../../Navigator/NavigationService";
 import {ROUTES} from "../../Components/Constant";
+import {R_POST} from "../../Services/NetRequestService";
 
 // Define our data structure
 type Item =
@@ -113,6 +114,26 @@ export default function LifeIndexScreen() {
     const [MenuSelect,setMenuSelect] = useState(1)
     const [OffLineMenuSelect,setOffLineMenuSelect] = useState(0)
     const [OnLineMenuSelect,setOnLineMenuSelect] = useState(0)
+
+    const getList = () => {
+
+        let url = '/mobile/course/list';
+
+        R_POST(url,{}).then(res=>{
+            
+            console.log("res:",res)
+
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+    useEffect(()=>{
+
+        getList()
+
+    },[])
 
     const Nav = () => {
         return(<View style={{height:insets.top+appSize(44),width:'100%',backgroundColor:'#fff'}} >

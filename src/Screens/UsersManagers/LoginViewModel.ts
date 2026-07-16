@@ -15,7 +15,7 @@ export const LoginViewModel = () => {
 
     const loginAct = async () => {
 
-        let url = '/open-api/mobile/member/login'
+        let url = '/mobile/member/login'
         let params = {
             "email": '123@456.com',
             "password": '123456'
@@ -38,7 +38,7 @@ export const LoginViewModel = () => {
 
 
     const getUserInfo = async () => {
-        let url = '/open-api/mobile/member/getMemberInfo'
+        let url = '/mobile/member/getMemberInfo'
         const res = await R_POST(url, {})
         if (res?.code == 200 && res?.data){
             dispatch(updateUserInfo(res?.data))

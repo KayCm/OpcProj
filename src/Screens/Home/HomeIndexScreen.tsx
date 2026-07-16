@@ -187,7 +187,7 @@ export default function HomeIndexScreen() {
             renderHeader={HomeHeader}
             renderRow={renderRow}
             renderEmpty={renderEmpty}
-            url={menuSelect==1?'/open-api/mobile/home/material/normal/list':'/open-api/mobile/home/material/byTag/list'}
+            url={menuSelect==1?'/mobile/home/material/normal/list':'/mobile/home/material/byTag/list'}
             params={menuSelect==1?{}:{
                 "tagId": 15,
                 "pageNum": 1,

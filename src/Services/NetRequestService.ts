@@ -8,6 +8,7 @@ import axios from 'axios';
 import {particleState} from "../Redux/persistedReducer";
 import {persistor, store} from "../Redux/store";
 import {navigationRef} from "../Navigator/NavigationService";
+import {API_BASE_URL} from "../Components/Constant";
 const USER_AGENT_IOS = "Mozilla/5.0 \(iPhone; CPU iPhone OS 9_1 like Mac OS X\) AppleWebKit/601.1.46 \(KHTML, like Gecko\) Version/9.0 Mobile/13B143 Safari/601.1"
 const USER_AGENT_ANDROID = "Mozilla/5.0 \(Linux; Android 6.0.1; SM-C7000 Build/MMB29M; wv\) AppleWebKit/537.36 \(KHTML, like Gecko\) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36 Language/zh_CN"
 export const USER_AGENT = Platform.OS === "ios" ? USER_AGENT_IOS : USER_AGENT_ANDROID
@@ -72,7 +73,7 @@ function optionsMerge(opts1: any, opts2: any) {
  */
 async function axiosOptsHandler(url: any, params: any, opts: any) {
 
-    url = "https://vps-sg-aws-opc.43046721.xyz" + url
+    url = API_BASE_URL + url
 
 
     try {

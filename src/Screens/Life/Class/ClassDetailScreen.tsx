@@ -1,9 +1,10 @@
 import {Image, TouchableOpacity, View, Text, ImageBackground, Pressable, Modal} from "react-native";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 import GStyles, {appSize, WINDOW_HEIGHT} from "../../../Components/GStyles";
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {ClassSummary, Header, MenuBar,PillTabBar, RecProj, renderRow, renderRowPassExam, renderRowWaitExam} from "./Component";
 import {TabBarRenderProps, Tabs} from 'react-native-collapsible-tab';
+import {R_POST} from "../../../Services/NetRequestService";
 
 
 
@@ -14,6 +15,30 @@ export default function ClassDetailScreen() {
     const insets =  useSafeAreaInsets()
 
     const [isModalVisible,setModalVisible] = useState(false)
+
+    useEffect(()=>{
+
+        getDetail()
+
+    },[])
+
+    const getDetail = () => {
+
+        let url = '/open-api/mobile/course/detail'
+        let params = {
+            "userId": 1,
+            "courseId": 1
+        }
+
+        R_POST(url,params).then(res=>{
+            console.log('res:',res)
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+    // /mobile/course/detail
 
     return(<View style={{flex:1,backgroundColor:'#f7f7f7'}}>
         <View style={{height:insets.top,width:'100%',backgroundColor:'#fff'}} />
