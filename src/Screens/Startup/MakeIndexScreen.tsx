@@ -9,6 +9,7 @@ import {renderRow} from "../Home/Components/Rows";
 import {navigate} from "../../Navigator/NavigationService";
 import {ROUTES} from "../../Components/Constant";
 import {StartupIndexHeader} from "./Components";
+import {R_POST} from "../../Services/NetRequestService";
 
 export default function StartupIndexScreen() {
 
@@ -20,6 +21,7 @@ export default function StartupIndexScreen() {
 
     const renderRow = ({item,index}) => {
 
+        console.log(item)
 
         return(<View style={{width:'100%',paddingHorizontal:appSize(16),paddingVertical:appSize(6)}}>
 
@@ -57,25 +59,25 @@ export default function StartupIndexScreen() {
 
                     <View style={{flexDirection:'row',justifyContent:'space-between',gap:appSize(4),marginTop:appSize(10)}} >
                         <View style={{flexDirection:'row',alignItems:'center',gap:appSize(4)}} >
-                            <Text numberOfLines={1}>发的沙发上的</Text>
+                            <Text numberOfLines={1}>{item?.jobTitle}</Text>
                             <View style={{padding:appSize(4),borderRadius:appSize(4),backgroundColor:'#10B9811A'}}>
                                 <Text style={{color:'#10B981',fontSize:appSize(12)}}>招募中</Text>
                             </View>
                         </View>
 
-                        <Text style={{color:'#FFA059'}}>¥ 1000起</Text>
+                        <Text style={{color:'#FFA059'}}>¥{item?.jobSalary}起</Text>
                     </View>
 
 
                     <View style={{flexDirection:'row',alignItems:'center',marginTop:appSize(4)}}>
-                        <Text style={{color:'#999999',fontSize:appSize(12)}}>项目</Text>
+                        <Text style={{color:'#999999',fontSize:appSize(12)}}>{item?.jobCompanyName}</Text>
                     </View>
 
                     <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',gap:appSize(4),marginTop:appSize(8)}} >
                         <View>
                             <View style={{flexDirection:'row',gap:appSize(4),paddingVertical:appSize(4),paddingHorizontal:appSize(8),backgroundColor:'#F7F7F7',borderRadius:appSize(4),alignItems:'center'}} >
                                 <Image style={{width:appSize(15),height:appSize(15)}} source={require('../../Assets/Startup/hugeicon.png')} />
-                                <Text style={{color:'#666666',fontSize:appSize(12)}}>项目人数：20 人 | 截止 06-15</Text>
+                                <Text style={{color:'#666666',fontSize:appSize(12)}}>项目人数：{item?.jobRecruitsNumber} 人 | 截止 {item?.jobApplicationDeadline}</Text>
                             </View>
                         </View>
 
@@ -121,16 +123,39 @@ export default function StartupIndexScreen() {
 
     }
 
+    const dddd = () => {
+
+        let url = '/mobile/jobs/list'
+
+        R_POST(url,{  "pageNum": 1,
+            "pageSize": 10,
+            "orderBy": "",
+            "userId": 9}).then(res=>{
+
+                console.log('--->',res)
+
+        }).catch(err=>{
+
+        })
+
+    }
+
 
     return(<View style={{flex:1,backgroundColor:"",paddingTop:0}}>
 
 
         <StartupIndexHeader />
 
+        {/*<TouchableOpacity onPress={()=>{*/}
+        {/*    dddd()*/}
+        {/*}}>*/}
+        {/*    <Text>123123123</Text>*/}
+        {/*</TouchableOpacity>*/}
+
         <DataList
             key={1}
             renderRow={renderRow}
-            url={'/open-api/mobile/home/material/normal/list'}
+            url={'/mobile/jobs/list'}
             params={{}}
             queryKey={'normal-list'}
             style={{marginTop:appSize(10)}}

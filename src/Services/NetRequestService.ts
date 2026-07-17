@@ -195,6 +195,7 @@ function _FETCH(url, param = {}, options = {},showLog=false) {
 
         axiosInstance.request(aoh_opts).then((res)=>{
 
+            console.log('===============>',res)
 
             if (res?.data?.code == 200){
                 const {data} = res;
@@ -203,10 +204,13 @@ function _FETCH(url, param = {}, options = {},showLog=false) {
                 resolve(rh_res);
             }else{
                 console.log('navigationRef',navigationRef)
+                console.log('<--->',res)
                 store.getState()?.logout()
                 navigationRef.current?.navigate('Login')
             }
         }).catch((err)=>{
+
+
 
             // const {errMsg} = errorHandler(err);
 

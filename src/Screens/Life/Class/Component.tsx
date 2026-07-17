@@ -7,7 +7,7 @@ import {ROUTES} from "../../../Components/Constant";
 import WebView from "react-native-webview";
 import {TabBarRenderProps} from "react-native-collapsible-tab";
 
-export const Header = () => {
+export const Header = ({data}) => {
 
     // const insets =  useSafeAreaInsets()
 
@@ -37,39 +37,39 @@ export const Header = () => {
         </ImageBackground>
 
         <View style={{position:'absolute',justifyContent:'center',alignItems:'center',right:appSize(20),top:appSize(180),backgroundColor:'#00000070',width:appSize(97),height:appSize(32),borderRadius:appSize(111)}} >
-            <Text style={{color:'#fff',fontSize:appSize(14)}}>85人已学习</Text>
+            <Text style={{color:'#fff',fontSize:appSize(14)}}>{data?.userLearnSum}人已学习</Text>
         </View>
 
-        <View style={[GStyles.boxShadow,{marginTop:appSize(230),paddingVertical:appSize(16),paddingHorizontal:appSize(12),borderRadius:appSize(12),width:appSize(361),backgroundColor:'#fff'}]}>
+        <View style={[{marginTop:appSize(230),paddingVertical:appSize(16),paddingHorizontal:appSize(12),borderRadius:appSize(12),width:appSize(361),backgroundColor:'#fff'}]}>
 
 
             <View style={{flexDirection:'row',width:'100%',height:appSize(44)}}>
 
-                <Text numberOfLines={2} style={{flex:1,fontWeight:'800',fontSize:appSize(16),color:'#1A1A1A'}}>心灵疗愈 缓解焦虑心灵疗愈 缓解焦虑心灵疗愈心灵疗愈 缓解焦虑心灵疗愈 缓解焦虑心灵疗愈心灵疗愈 缓解焦虑心灵疗愈 缓解焦虑心灵疗愈缓解焦虑心灵疗愈缓解焦虑心灵疗愈缓解焦虑心灵疗愈缓解焦虑心灵疗愈缓解焦虑心灵疗愈缓解焦虑心灵疗愈</Text>
+                <Text numberOfLines={2} style={{flex:1,fontWeight:'800',fontSize:appSize(16),color:'#1A1A1A'}}>{data?.courseName}</Text>
 
                 <View style={{flexDirection:'row',gap:appSize(12)}}>
                     <View style={{gap:appSize(4),justifyContent:'center',alignItems:'center',width:appSize(50)}}>
                         <View style={{height:appSize(14)}}>
                             <Image style={{height:appSize(13.54),width:appSize(17.07)}} source={require('../../../Assets/Life/class/like.png')} />
                         </View>
-                        <Text style={{color:'#999999',fontSize:appSize(10)}}>12345678</Text>
+                        <Text style={{color:'#999999',fontSize:appSize(10)}}>{data?.likeCount}</Text>
                     </View>
 
                     <View style={{gap:appSize(4),justifyContent:'center',alignItems:'center',width:appSize(50)}}>
                         <Image style={{height:appSize(14),width:appSize(14)}} source={require('../../../Assets/Life/class/share.png')} />
-                        <Text style={{color:'#999999',fontSize:appSize(10)}}>12345678</Text>
+                        <Text style={{color:'#999999',fontSize:appSize(10)}}>{data?.starCount}</Text>
                     </View>
                 </View>
 
             </View>
 
             <View style={{paddingHorizontal:appSize(8),justifyContent:'center',width:'100%',height:appSize(28),marginTop:appSize(10),borderRadius:appSize(4),backgroundColor:'#F7F7F7'}} >
-                <Text style={{color:'#333333',fontWeight:'bold',fontSize:appSize(12)}}>完成全部课程：成长等级<Text style={{color:'#10B981',fontSize:appSize(12)}}>+60</Text> 破局直觉<Text style={{color:'#10B981',fontSize:appSize(12)}}>+8</Text></Text>
+                <Text style={{color:'#333333',fontWeight:'bold',fontSize:appSize(12)}}>完成全部课程：成长等级<Text style={{color:'#10B981',fontSize:appSize(12)}}>+{data?.growNumSum}</Text></Text>
             </View>
 
             <Text numberOfLines={showMore?0:2} onPress={()=>{
                 setShowMore(!showMore)
-            }} style={{color:'#999999',lineHeight:appSize(22),marginTop:appSize(10),fontSize:appSize(14)}}>本课程是一站学习剪辑、带货和投流的直播课程，学习形式包括:课后录播回放+专属VIP班级群本课程是一站学习剪辑、带货和投流的直播课程，学习形式包括:课后录播回放+专属VIP班级群本课程是一站学习剪辑、带货和投流的直播课程，学习形式包括:课后录播回放+专属VIP班级群本课程是一站学习剪辑、带货和投流的直播课程，学习形式包括:课后录播回放+专属VIP班级群本课程是一站学习剪辑、带货和投流的直播课程，学习形式包括:课后录播回放+专属VIP班级群本课程是一站学习剪辑、带货和投流的直播课程，学习形式包括:课后录播回放+专属VIP班级群</Text>
+            }} style={{color:'#999999',lineHeight:appSize(22),marginTop:appSize(10),fontSize:appSize(14)}}>{data?.courseSummary}</Text>
 
 
 
@@ -78,36 +78,46 @@ export const Header = () => {
     </View>)
 }
 
-export const renderRow = ({item,index}) => {
+export const RenderRow = ({item,index,doExam=null}) => {
 
-    return(<View style={{paddingVertical:appSize(6)}}>
-        <TouchableOpacity onPress={()=>{
-            navigate(ROUTES.CLASS_PLAYER)
-        }} style={{gap:appSize(4),paddingVertical:appSize(12),paddingHorizontal:appSize(12),width:'100%',height:appSize(70),borderRadius:appSize(12),backgroundColor:'#fff'}}>
-            <View style={{position:'absolute',right:0,justifyContent:'center',alignItems:'center',backgroundColor:'#99999920',width:appSize(28),height:appSize(28),borderTopRightRadius:appSize(12),borderBottomLeftRadius:appSize(8)}} >
-                <Image style={{width:appSize(28),height:appSize(28)}} source={require('../../../Assets/Life/class/localIcon.png')} />
-            </View>
 
-            <Text style={{color:'#333333',fontSize:appSize(16),fontWeight:'600'}}>{index} 入门课程</Text>
+    console.log(item)
 
-            <View style={{flexDirection:'row',gap:appSize(6)}}>
-
-                <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
-                    <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+20</Text></Text>
+    if (item?.progressStatus == 1){
+        return <RenderRowWaitExam item={item} examPress={doExam} />
+    }else if(item?.progressStatus == 2){
+        return <RenderRowPassExam item={item} />
+    }else{
+        return(<View style={{paddingVertical:appSize(6)}}>
+            <TouchableOpacity onPress={()=>{
+                navigate(ROUTES.CLASS_PLAYER)
+            }} style={{gap:appSize(4),paddingVertical:appSize(12),paddingHorizontal:appSize(12),width:'100%',height:appSize(70),borderRadius:appSize(12),backgroundColor:'#fff'}}>
+                <View style={{position:'absolute',right:0,justifyContent:'center',alignItems:'center',backgroundColor:'#99999920',width:appSize(28),height:appSize(28),borderTopRightRadius:appSize(12),borderBottomLeftRadius:appSize(8)}} >
+                    <Image style={{width:appSize(28),height:appSize(28)}} source={require('../../../Assets/Life/class/localIcon.png')} />
                 </View>
 
-                <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
-                    <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+20</Text></Text>
+                <Text style={{color:'#333333',fontSize:appSize(16),fontWeight:'600'}}>{item?.courseChapterTitle}</Text>
+
+                <View style={{flexDirection:'row',gap:appSize(6)}}>
+
+                    <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
+                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+{item?.chapterGrowNum}</Text></Text>
+                    </View>
+
                 </View>
 
+            </TouchableOpacity>
+        </View>)
+    }
 
-            </View>
 
-        </TouchableOpacity>
-    </View>)
+
+
+
+
 }
 
-export const renderRowWaitExam = ({item,index}) => {
+export const RenderRowWaitExam = ({item,index,examPress}) => {
 
     return(<View style={{paddingVertical:appSize(6)}}>
         <TouchableOpacity onPress={()=>{
@@ -115,17 +125,14 @@ export const renderRowWaitExam = ({item,index}) => {
         }} style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'center',paddingVertical:appSize(12),paddingHorizontal:appSize(12),width:'100%',height:appSize(70),borderTopRightRadius:appSize(12),borderTopLeftRadius:appSize(12),backgroundColor:'#fff'}}>
 
             <View>
-                <Text style={{color:'#333333',fontSize:appSize(16),fontWeight:'600'}}>{index} 入门课程123</Text>
+                <Text style={{color:'#333333',fontSize:appSize(16),fontWeight:'600'}}>{item?.courseChapterTitle}</Text>
 
                 <View style={{flexDirection:'row',gap:appSize(6),marginTop:appSize(6)}}>
 
                     <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
-                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+20</Text></Text>
+                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+{item?.courseChapterTitle}</Text></Text>
                     </View>
 
-                    <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
-                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+20</Text></Text>
-                    </View>
 
                 </View>
             </View>
@@ -142,7 +149,10 @@ export const renderRowWaitExam = ({item,index}) => {
 
             <Text style={{color:'#333333',fontSize:appSize(14),fontWeight:'600'}}>小结考核</Text>
             <TouchableOpacity onPress={()=>{
-                navigate(ROUTES.ClASS_EXAM)
+
+                if (examPress)examPress()
+
+                // navigate(ROUTES.ClASS_EXAM)
             }} style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-end'}}>
                 <Text style={{color:'#10B981',fontSize:appSize(14),fontWeight:'600'}}>前往考核</Text>
                 <Image style={{height:appSize(12),width:appSize(12)}} source={require('../../../Assets/Life/class/goexam.png')} />
@@ -152,7 +162,7 @@ export const renderRowWaitExam = ({item,index}) => {
     </View>)
 }
 
-export const renderRowPassExam = ({item,index}) => {
+export const RenderRowPassExam = ({item,index}) => {
 
     return(<View style={{paddingVertical:appSize(6)}}>
 
@@ -161,17 +171,14 @@ export const renderRowPassExam = ({item,index}) => {
         }} style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'center',paddingVertical:appSize(12),paddingHorizontal:appSize(12),width:'100%',height:appSize(70),borderTopRightRadius:appSize(12),borderTopLeftRadius:appSize(12),backgroundColor:'#fff'}}>
 
             <View>
-                <Text style={{color:'#333333',fontSize:appSize(16),fontWeight:'600'}}>{index} 入门课程123</Text>
+                <Text style={{color:'#333333',fontSize:appSize(16),fontWeight:'600'}}>{item?.courseChapterTitle}</Text>
 
                 <View style={{flexDirection:'row',gap:appSize(6),marginTop:appSize(6)}}>
 
                     <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
-                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+20</Text></Text>
+                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+{item?.courseChapterTitle}</Text></Text>
                     </View>
 
-                    <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
-                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+20</Text></Text>
-                    </View>
 
                 </View>
             </View>
@@ -220,38 +227,11 @@ export const MenuBar = ({tabNames,
   </View>)
 }
 
-export const ClassSummary =()=>{
+export const ClassSummary =({data})=>{
     return(<View style={[{backgroundColor:'#fff',borderRadius:appSize(12),paddingVertical:appSize(16),paddingHorizontal:appSize(12)}]}>
-        <Text style={{fontWeight:'600',fontSize:appSize(14),color:'#000'}}>课程主题：AI剪辑+自动化电商全解</Text>
-        <Text style={{fontSize:appSize(14),color:'#666',marginTop:appSize(20)}}>谁适合来学这门课？
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
-            如果你是刚接触短视频、想靠带货赚到第一桶金的新人，或者已经积累了一定粉丝、想要打通变现路径的
+        <Text style={{fontWeight:'600',fontSize:appSize(14),color:'#000'}}>课程主题：{data?.courseName}</Text>
+        <Text style={{fontSize:appSize(14),color:'#666',marginTop:appSize(20)}}>
+            {data?.courseSummaryHtml}
         </Text>
     </View>)
 }

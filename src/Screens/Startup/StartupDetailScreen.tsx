@@ -2,10 +2,11 @@ import {Image, ImageBackground, ScrollView, Text, TouchableOpacity, View} from "
 import GStyles, {appSize} from "../../Components/GStyles";
 import {goBack, navigate} from "../../Navigator/NavigationService";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { SizedWebView } from 'react-native-sized-webview';
 import { WebView } from 'react-native-webview';
 import {ROUTES} from "../../Components/Constant";
+import {R_POST} from "../../Services/NetRequestService";
 
 export default function StartupDetailScreen() {
 
@@ -13,43 +14,34 @@ export default function StartupDetailScreen() {
 
     const [webViewHeight, setWebViewHeight] = useState(0);
 
-    const handleMessage = (event) => {
-        console.log('event',event)
-        try {
-            const data = JSON.parse(event.nativeEvent.data);
-            if (data.type === 'setHeight' && data.height > 0) {
-                setWebViewHeight(data.height);
-            }
-        } catch (error) {
-            console.warn('解析 WebView 消息失败:', error);
+    const [detail,setDetail] = useState(null)
+
+    useEffect(()=>{
+
+        getDetail()
+
+    },[])
+
+    const getDetail = () => {
+
+        let url = '/mobile/jobs/detail'
+
+        let params = {
+            "userId": 9,
+            "projectJobsId": 1
         }
-    };
 
+        R_POST(url,params).then(res=>{
 
-    const heightScript = `
-  (function() {
-    var height = null;
-    function sendHeight() {
-      var newHeight = document.body.scrollHeight; // 或 document.documentElement.scrollHeight[reference:9]
-      if (newHeight !== height) {
-        height = newHeight;
-        // 使用 ReactNativeWebView.postMessage 发送数据[reference:10]
-        window.ReactNativeWebView.postMessage(JSON.stringify({
-          type: 'setHeight',
-          height: height
-        }));
-      }
+            console.log('res:',res)
+
+            setDetail(res?.data)
+
+        }).catch(err=>{
+            console.log('err',err)
+        })
+
     }
-    // 页面加载完成后立即发送一次高度
-    window.onload = function() {
-      setTimeout(sendHeight, 300); // 延迟确保内容渲染完成[reference:11]
-    };
-    // 监听窗口变化，在内容变动时重新计算高度[reference:12]
-    window.addEventListener('resize', sendHeight);
-  })();
-  true; // 注意： injectedJavaScript 需要返回 true 或可评估的值[reference:13]
-`;
-
 
     const Nav = () => {
         return(<View style={{height:insets.top+appSize(44),width:'100%',backgroundColor:'#fff'}} >
@@ -76,53 +68,59 @@ export default function StartupDetailScreen() {
                 </ImageBackground>
 
                 <Text style={{color:'#333333',fontSize:appSize(18),lineHeight:appSize(24),fontWeight:'800',marginTop:appSize(18)}}>
-                    AI电商自动化AI电商自动化AI电商自动化AI电商自动化
+                    {detail?.jobTitle}
                 </Text>
 
                 <View style={{flexDirection:'row',alignItems:'center',gap:appSize(4)}} >
                     <Image style={{height:appSize(16),width:appSize(16),borderRadius:appSize(8),backgroundColor:'#333'}}  />
-                    <Text style={{color:'#999999',fontSize:appSize(14)}}>发的沙发上的</Text>
+                    <Text style={{color:'#999999',fontSize:appSize(14)}}>{detail?.jobCompanyName}</Text>
                     <View style={{padding:appSize(4),borderRadius:appSize(4),backgroundColor:'#10B9811A'}}>
                         <Text style={{color:'#10B981',fontSize:appSize(12)}}>招募中</Text>
                     </View>
                 </View>
 
                 <View style={{flexDirection:'row',flexWrap:'wrap',gap:appSize(6),marginTop:appSize(10)}}>
-                    <View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
-                        <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>
-                    </View>
 
-                    <View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
-                        <Text style={{color:'#666666',fontSize:appSize(12)}}>短视频带货</Text>
-                    </View>
+                    {detail?.jobTags.map((v,i,a)=>{
 
-                    <View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
-                        <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>
-                    </View>
+                        return(<View key={i} style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
+                            <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>
+                        </View>)
 
-                    <View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
-                        <Text style={{color:'#666666',fontSize:appSize(12)}}>短视频带货</Text>
-                    </View>
+                    })}
 
-                    <View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
-                        <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>
-                    </View>
 
-                    <View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
-                        <Text style={{color:'#666666',fontSize:appSize(12)}}>短视频带货</Text>
-                    </View>
+                    {/*<View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>*/}
+                    {/*    <Text style={{color:'#666666',fontSize:appSize(12)}}>短视频带货</Text>*/}
+                    {/*</View>*/}
 
-                    <View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
-                        <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>
-                    </View>
+                    {/*<View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>*/}
+                    {/*    <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>*/}
+                    {/*</View>*/}
 
-                    <View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
-                        <Text style={{color:'#666666',fontSize:appSize(12)}}>短视频带货</Text>
-                    </View>
+                    {/*<View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>*/}
+                    {/*    <Text style={{color:'#666666',fontSize:appSize(12)}}>短视频带货</Text>*/}
+                    {/*</View>*/}
 
-                    <View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
-                        <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>
-                    </View>
+                    {/*<View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>*/}
+                    {/*    <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>*/}
+                    {/*</View>*/}
+
+                    {/*<View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>*/}
+                    {/*    <Text style={{color:'#666666',fontSize:appSize(12)}}>短视频带货</Text>*/}
+                    {/*</View>*/}
+
+                    {/*<View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>*/}
+                    {/*    <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>*/}
+                    {/*</View>*/}
+
+                    {/*<View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>*/}
+                    {/*    <Text style={{color:'#666666',fontSize:appSize(12)}}>短视频带货</Text>*/}
+                    {/*</View>*/}
+
+                    {/*<View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>*/}
+                    {/*    <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>*/}
+                    {/*</View>*/}
                 </View>
 
                 <View style={{flexDirection:'row',alignItems:'center',paddingHorizontal:appSize(16),height:appSize(75),width:'100%',backgroundColor:'#ffffff',marginTop:appSize(16),borderRadius:appSize(12)}} >
@@ -170,7 +168,9 @@ export default function StartupDetailScreen() {
                             <Text style={{color:'#333333',fontSize:appSize(14)}}>完成AI剪辑课程</Text>
                         </View>
                         <TouchableOpacity onPress={()=>{
-                            navigate(ROUTES.CLASS_DETAIL)
+                            // navigate(ROUTES.CLASS_DETAIL)
+
+                            getDetail()
                         }} style={{justifyContent:'center',alignItems:'center',borderRadius:appSize(20),borderWidth:1,borderColor:'#10B981',height:appSize(33),paddingHorizontal:appSize(12)}}>
                             <Text style={{color:'#10B981',fontSize:appSize(12)}}>去订阅</Text>
                         </TouchableOpacity>

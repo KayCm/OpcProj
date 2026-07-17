@@ -5,7 +5,12 @@ import {goBack, navigate} from "../../../Navigator/NavigationService";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 
 
-export default function ExamScreen() {
+export default function ExamScreen(props) {
+
+
+    console.log('props:',props)
+
+    const params = props?.route?.params
 
     const insets =  useSafeAreaInsets()
 
@@ -30,6 +35,7 @@ export default function ExamScreen() {
         console.log('Received from WebView:', event.nativeEvent.data);
         try {
             const data = JSON.parse(event.nativeEvent.data);
+            params?.updateFunc(params?.userChapterId);
             goBack()
             // 处理 JSON 数据
         } catch (e) {
