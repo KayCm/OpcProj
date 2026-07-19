@@ -263,6 +263,8 @@ export default function LifeIndexScreen() {
                     navigate(ROUTES.LIFE_ACT_DETAIL)
                 }} />:<ClassCard onPress={()=>{
                     navigate(ROUTES.CLASS_DETAIL)
+                    // navigate(ROUTES.ClASS_EXAM)
+
                 }} />}
 
                 {/*{getRowNumber()==2?<Card onPress={()=>{*/}

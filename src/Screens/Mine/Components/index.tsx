@@ -228,7 +228,7 @@ export const FunctionsCard = () => {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=>{
-                // navigate(ROUTES.LIFE_TAB)
+                navigate(ROUTES.FUNC_MY_ORDER)
             }}  style={{justifyContent:'center',alignItems:'center',paddingVertical:appSize(10),flex:1}}>
                 <Image source={require('../../../Assets/Mine/function/function_icon3.png')} style={{height:appSize(24),width:appSize(24)}}/>
                 <Text style={{marginTop:appSize(10),fontWeight:'bold',fontSize:appSize(12),color:'#333'}}>我的订单</Text>

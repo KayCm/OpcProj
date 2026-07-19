@@ -36,6 +36,7 @@ export default function ExamScreen(props) {
         try {
             const data = JSON.parse(event.nativeEvent.data);
             params?.updateFunc(params?.userChapterId);
+            console.log(data);
             goBack()
             // 处理 JSON 数据
         } catch (e) {
@@ -44,11 +45,14 @@ export default function ExamScreen(props) {
     };
 
 
-    return(<View style={{flex:1}}>
+    return (
+      <View style={{ flex: 1 }}>
         <Nav />
-        <WebView source={{ uri: 'http://192.168.0.102:3000' }}
-                 style={{ flex: 1,backgroundColor:'#f7f7f7', width: '100%' }}
-                 onMessage={handleMessage}/>
-
-    </View>)
+        <WebView
+          source={{ uri: 'http://192.168.1.9:3000' }}
+          style={{ flex: 1, backgroundColor: '#f7f7f7', width: '100%' }}
+          onMessage={handleMessage}
+        />
+      </View>
+    );
 }

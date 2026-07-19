@@ -215,7 +215,8 @@ export default function ClassDetailScreen() {
                             <Text
                                 style={{ color: '#10B981' }}
                                 onPress={() => {
-                                    Alert.alert('用户协议');
+                                    // Alert.alert('用户协议');
+                                  navigate(ROUTES.ClASS_BUY_NOTE)
                                 }}
                             >
                                 《购买须知》
@@ -225,7 +226,9 @@ export default function ClassDetailScreen() {
 
                     </View>
 
-                    <TouchableOpacity style={{justifyContent:'center',alignItems:'center',borderRadius:appSize(22),marginTop:appSize(20),backgroundColor:'#10B981',width:appSize(280),height:appSize(44)}}>
+                    <TouchableOpacity onPress={()=>{
+                      courseBuy()
+                    }} style={{justifyContent:'center',alignItems:'center',borderRadius:appSize(22),marginTop:appSize(20),backgroundColor:'#10B981',width:appSize(280),height:appSize(44)}}>
                         <Text style={{fontSize:appSize(17),color:'#fff',fontWeight:'bold'}}>立即支付 ¥{courseData?.coursePrice}</Text>
                     </TouchableOpacity>
 

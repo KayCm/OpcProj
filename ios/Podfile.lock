@@ -42,6 +42,28 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
+  - OrientationTurbo (2.2.0):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
   - RCTDeprecation (0.86.0)
   - RCTRequired (0.86.0)
   - RCTSwiftUI (0.86.0)
@@ -2426,6 +2448,7 @@ DEPENDENCIES:
   - GtSdkRN (from `../node_modules/react-native-getui`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - NitroModules (from `../node_modules/react-native-nitro-modules`)
+  - OrientationTurbo (from `../node_modules/react-native-orientation-turbo`)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
   - RCTRequired (from `../node_modules/react-native/Libraries/Required`)
   - RCTSwiftUI (from `../node_modules/react-native/ReactApple/RCTSwiftUI`)
@@ -2540,6 +2563,8 @@ EXTERNAL SOURCES:
     :tag: hermes-v250829098.0.14
   NitroModules:
     :path: "../node_modules/react-native-nitro-modules"
+  OrientationTurbo:
+    :path: "../node_modules/react-native-orientation-turbo"
   RCTDeprecation:
     :path: "../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation"
   RCTRequired:
@@ -2726,10 +2751,11 @@ SPEC CHECKSUMS:
   GTCommonSDK: 238c6735add91e654f8564638854686ee3dcb4ac
   GTSDK: edf67f0d2c9fee263c16cd4d85a9bc6777bc3263
   GtSdkRN: 25a7f3be00329c637916aee523d0d9d536cf9665
-  hermes-engine: 26132988beaca809d5ebbc3436769da33a158c24
+  hermes-engine: 0fcfb8efcb14766662f66e72eb2fb7c7954b171f
   MMKV: 43cd10be0f925bf3fd5c2bd8bea501a328037b64
   MMKVCore: 13be45a0394861b74836875ac9ec7ee939e86b78
   NitroModules: 16bc17a076b12304d608f7c915b9d321f56dfc19
+  OrientationTurbo: 226f157656e328041af6c1db012e8184d3e6981c
   RCTDeprecation: 2a74a2c57675e64419bd89078efde81f7c1de90b
   RCTRequired: 30451112e6fef4e6f31b4e7eee0845156e35e4b0
   RCTSwiftUI: 5aaf0b07e747ba749dc6acc94d8bd41eea4b570f

@@ -27,54 +27,167 @@ import PlayerScreen from "../Screens/Life/Class/PlayerScreen";
 import OpportunityListScreen from "../Screens/Startup/OpportunityListScreen";
 import ExamScreen from "../Screens/Life/Class/ExamScreen";
 import ClassBuyNoteScreen from "../Screens/Life/Class/ClassBuyNoteScreen";
+import MyOrderScreen from '../Screens/Mine/Functions/MyOrderScreen.tsx';
+import { OrderDetailScreen } from '../Screens/Mine/Functions/OrderDetailScreen.tsx';
 
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigator() {
     return (
-        <NavigationContainer ref={navigationRef} >
-            <Stack.Navigator screenOptions={{ headerShown: false }}  initialRouteName={ROUTES.INIT}>
-                <Stack.Screen
-                    name={ROUTES.INIT}
-                    component={AppInitial}
-                    options={{ headerShown: false, animation: 'fade' }}
-                />
+      <NavigationContainer ref={navigationRef}>
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName={ROUTES.INIT}
+        >
+          <Stack.Screen
+            name={ROUTES.INIT}
+            component={AppInitial}
+            options={{ headerShown: false, animation: 'fade' }}
+          />
 
-                <Stack.Screen name={ROUTES.MAIN_TAB} component={AppTabNavigator} options={{ headerShown: false, animation: 'fade' }} />
+          <Stack.Screen
+            name={ROUTES.MAIN_TAB}
+            component={AppTabNavigator}
+            options={{ headerShown: false, animation: 'fade' }}
+          />
 
-                {/*Class*/}
-                <Stack.Screen name={ROUTES.CLASS_DETAIL} component={ClassDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.CLASS_PLAYER} component={PlayerScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.ClASS_EXAM} component={ExamScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.ClASS_BUY_NOTE} component={ClassBuyNoteScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+          {/*Class*/}
+          <Stack.Screen
+            name={ROUTES.CLASS_DETAIL}
+            component={ClassDetailScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.CLASS_PLAYER}
+            component={PlayerScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.ClASS_EXAM}
+            component={ExamScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.ClASS_BUY_NOTE}
+            component={ClassBuyNoteScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
 
-                {/* STARTUP */}
-                <Stack.Screen name={ROUTES.STARTUP_DETAIL} component={StartupDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.OPPORTUNITY_LIST} component={OpportunityListScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+          {/* STARTUP */}
+          <Stack.Screen
+            name={ROUTES.STARTUP_DETAIL}
+            component={StartupDetailScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.OPPORTUNITY_LIST}
+            component={OpportunityListScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
 
-                <Stack.Screen name={'Detail'} component={Detail} options={{ headerShown: false, animation: 'slide_from_right' }} />
+          <Stack.Screen
+            name={'Detail'}
+            component={Detail}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
 
-                {/*Life*/}
-                <Stack.Screen name={ROUTES.LIFE_ACT_DETAIL} component={ActivityDetailScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.LIFE_ACT_APPLY} component={ActicityApplyScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.LIFE_ACT_SIGNIN} component={ActicitySignInScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+          {/*Life*/}
+          <Stack.Screen
+            name={ROUTES.LIFE_ACT_DETAIL}
+            component={ActivityDetailScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.LIFE_ACT_APPLY}
+            component={ActicityApplyScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.LIFE_ACT_SIGNIN}
+            component={ActicitySignInScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
 
-                {/*Profile*/}
-                <Stack.Screen name={ROUTES.PROFILE_SRC} component={ProfileScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.PROFILE_SRC_EDIT} component={ProfileEditScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.IDENTITY_EDIT} component={IdentityEditScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.EMERGENCY_ADD} component={EmergencyAddScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.ACCOUNT_SECURITY} component={AccountSecurityScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.MY_FAVORITE} component={MyFavoriteScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.NOTIFICATION} component={NotificationScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.FAQ} component={FaqScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.FEEDBACK} component={FeedbackScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-                <Stack.Screen name={ROUTES.ABOUT} component={AboutScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+          {/*Profile*/}
+          <Stack.Screen
+            name={ROUTES.PROFILE_SRC}
+            component={ProfileScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.PROFILE_SRC_EDIT}
+            component={ProfileEditScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.IDENTITY_EDIT}
+            component={IdentityEditScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.EMERGENCY_ADD}
+            component={EmergencyAddScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.ACCOUNT_SECURITY}
+            component={AccountSecurityScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.MY_FAVORITE}
+            component={MyFavoriteScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.NOTIFICATION}
+            component={NotificationScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.FAQ}
+            component={FaqScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.FEEDBACK}
+            component={FeedbackScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.ABOUT}
+            component={AboutScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
 
-                <Stack.Screen name={ROUTES.LOGIN} component={LoginScreen} options={{ headerShown: false, animation: 'slide_from_bottom' }} />
-                <Stack.Screen name={ROUTES.REGISTER} component={RegisterScreen} options={{ headerShown: false, animation: 'slide_from_bottom' }} />
-                {/*<Stack.Screen name="Auth" component={AuthNavigator} />*/}
-            </Stack.Navigator>
-        </NavigationContainer>
+          {/*functions*/}
+          <Stack.Screen
+            name={ROUTES.FUNC_MY_ORDER}
+            component={MyOrderScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+          <Stack.Screen
+            name={ROUTES.FUNC_MY_ORDER_DETAIL}
+            component={OrderDetailScreen}
+            options={{ headerShown: false, animation: 'slide_from_right' }}
+          />
+
+
+
+
+
+          <Stack.Screen
+            name={ROUTES.LOGIN}
+            component={LoginScreen}
+            options={{ headerShown: false, animation: 'slide_from_bottom' }}
+          />
+          <Stack.Screen
+            name={ROUTES.REGISTER}
+            component={RegisterScreen}
+            options={{ headerShown: false, animation: 'slide_from_bottom' }}
+          />
+          {/*<Stack.Screen name="Auth" component={AuthNavigator} />*/}
+        </Stack.Navigator>
+      </NavigationContainer>
     );
 }
