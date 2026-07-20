@@ -115,13 +115,13 @@ export default function LifeIndexScreen() {
     const [OffLineMenuSelect,setOffLineMenuSelect] = useState(0)
     const [OnLineMenuSelect,setOnLineMenuSelect] = useState(0)
 
-    const getList = () => {
+    const getCourseList = () => {
 
         let url = '/mobile/course/list';
 
         R_POST(url,{}).then(res=>{
-            
-            console.log("res:",res)
+
+            console.log("course/list:",res)
 
         }).catch(err=>{
             console.log(err)
@@ -131,7 +131,7 @@ export default function LifeIndexScreen() {
 
     useEffect(()=>{
 
-        getList()
+        getCourseList()
 
     },[])
 
@@ -262,14 +262,10 @@ export default function LifeIndexScreen() {
                 }} />:<LongCard onPress={()=>{
                     navigate(ROUTES.LIFE_ACT_DETAIL)
                 }} />:<ClassCard onPress={()=>{
-                    navigate(ROUTES.CLASS_DETAIL)
+                    navigate(ROUTES.CLASS_DETAIL,{courseId:4})
                     // navigate(ROUTES.ClASS_EXAM)
 
                 }} />}
-
-                {/*{getRowNumber()==2?<Card onPress={()=>{*/}
-                {/*}*/}
-                {/*} />:<LongCard />}*/}
             </View>
         ),[MenuSelect,OffLineMenuSelect,OnLineMenuSelect]);
 

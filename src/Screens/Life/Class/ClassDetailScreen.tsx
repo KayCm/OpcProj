@@ -21,13 +21,22 @@ import {ROUTES} from "../../../Components/Constant";
 
 
 
-export default function ClassDetailScreen() {
+export default function ClassDetailScreen(props) {
     const insets =  useSafeAreaInsets()
 
     const [isModalVisible,setModalVisible] = useState(false)
 
     const [courseData,setCourseData] = useState(null)
     const [chapterList,setChapterList] = useState([])
+    const [recommendList,setRecommendList] = useState([])
+
+
+
+
+    const {courseId} = props?.route?.params
+
+
+    console.log('courseId',courseId)
 
     useEffect(()=>{
 
@@ -45,7 +54,7 @@ export default function ClassDetailScreen() {
             "pageSize": 20,
             "orderBy": "",
             "userId": 9,
-            "courseId": 4
+            "courseId": courseId
         }
 
         R_POST(url,params).then(res=>{
@@ -61,7 +70,7 @@ export default function ClassDetailScreen() {
         let url = '/mobile/course/detail'
         let params = {
             "userId": 9,
-            "courseId": 4
+            "courseId": courseId
         }
 
         R_POST(url,params).then(res=>{
@@ -69,9 +78,36 @@ export default function ClassDetailScreen() {
             setCourseData(res?.data)
 
             getChapterList()
+
+            getRecommendList()
+
         }).catch(err=>{
             console.log(err)
         })
+
+    }
+
+    const getRecommendList= () => {
+
+        let url = '/mobile/jobs/recommendList'
+
+        let params = {
+            "userId": 9,
+            "pageNum": 1,
+            "pageSize": 10,
+            "orderBy": "",
+        }
+
+        R_POST(url,params).then(res=>{
+
+            console.log('getRecommendList:',res)
+
+            setRecommendList(res?.data)
+
+        }).catch(err=>{
+            console.log('err',err)
+        })
+
 
     }
 
@@ -130,7 +166,13 @@ export default function ClassDetailScreen() {
                     <View style={{backgroundColor:'#f7f7f7', paddingHorizontal:appSize(16),paddingBottom:appSize(24)}} contentContainerStyle={{ flexGrow: 1 }}>
                         <ClassSummary data={courseData} />
                         <Text style={{paddingTop:appSize(16),paddingBottom:appSize(6),fontSize:appSize(16),fontWeight:'600',color:'#000'}}>推荐项目</Text>
-                        <RecProj />
+
+                        {recommendList?.map((value, index, array)=>{
+
+                            return <RecProj value={value} />
+                        })}
+
+
                     </View>
                 </Tabs.ScrollView>
             </Tabs.Tab>
@@ -139,9 +181,12 @@ export default function ClassDetailScreen() {
 
                     return <RenderRow item={item?.item} index={item?.index} doExam={()=>{
 
-                        navigate(ROUTES.ClASS_EXAM,{userChapterId:item?.item?.userChapterId,updateFunc:(userChapterId)=>{
+                        navigate(ROUTES.ClASS_EXAM,{userChapterId:item?.item?.userChapterId,updateFunc:(userChapterId,isPass)=>{
 
-                            console.log('abc===============>',userChapterId)
+                            if (isPass){
+                                leanSuccess(item?.item?.userChapterId)
+                            }
+                            console.log('result===============>',userChapterId,isPass)
                                // leanSuccess(item?.item?.userChapterId)
                         }})
 
@@ -203,13 +248,11 @@ export default function ClassDetailScreen() {
 
 
                     <View style={[GStyles.row, GStyles.jc,GStyles.ac, {marginTop:appSize(30),width: '100%',gap:appSize(4) }]}>
-
                         <TouchableOpacity onPress={()=>{
                             // setAgree(!agree)
                         }}>
                             <Image style={{marginTop:appSize(-0.5),width:appSize(14),height:appSize(14)}} source={1==1?require('../../../Assets/userManager/agree.png'):require('../../../Assets/userManager/unagree.png')}  />
                         </TouchableOpacity>
-
                         <Text style={{ color: '#999999',fontSize:appSize(13),marginTop:appSize(-1.5) }}>
                             我已确认阅读
                             <Text
@@ -225,6 +268,8 @@ export default function ClassDetailScreen() {
                         </Text>
 
                     </View>
+
+
 
                     <TouchableOpacity onPress={()=>{
                       courseBuy()

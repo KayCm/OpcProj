@@ -1,7 +1,7 @@
 import OpportunityListScreen from "../Screens/Startup/OpportunityListScreen";
 
-export const API_BASE_URL = "https://vps-sg-aws-opc.43046721.xyz";
-// export const API_BASE_URL = "http://192.168.0.172:8080";
+// export const API_BASE_URL = "https://vps-sg-aws-opc.43046721.xyz";
+export const API_BASE_URL = "http://192.168.0.172:8080";
 export const APP_NAME = 'MyApp';
 
 export const MAIN_COLOR = '#10B981';

@@ -10,6 +10,7 @@ import {navigate} from "../../Navigator/NavigationService";
 import {ROUTES} from "../../Components/Constant";
 import {StartupIndexHeader} from "./Components";
 import {R_POST} from "../../Services/NetRequestService";
+import {formatDate} from "../../Components/Tools";
 
 export default function StartupIndexScreen() {
 
@@ -77,12 +78,12 @@ export default function StartupIndexScreen() {
                         <View>
                             <View style={{flexDirection:'row',gap:appSize(4),paddingVertical:appSize(4),paddingHorizontal:appSize(8),backgroundColor:'#F7F7F7',borderRadius:appSize(4),alignItems:'center'}} >
                                 <Image style={{width:appSize(15),height:appSize(15)}} source={require('../../Assets/Startup/hugeicon.png')} />
-                                <Text style={{color:'#666666',fontSize:appSize(12)}}>项目人数：{item?.jobRecruitsNumber} 人 | 截止 {item?.jobApplicationDeadline}</Text>
+                                <Text style={{color:'#666666',fontSize:appSize(12)}}>项目人数：{item?.jobRecruitsNumber} 人 | 截止 {formatDate(item?.jobApplicationDeadline)}</Text>
                             </View>
                         </View>
 
                         <TouchableOpacity onPress={()=>{
-                            navigate(ROUTES.STARTUP_DETAIL)
+                            navigate(ROUTES.STARTUP_DETAIL,{jobsId:item?.id})
                         }}  style={{borderColor:'#10B981',borderRadius:appSize(20),borderWidth:1,paddingHorizontal:appSize(12),paddingVertical:appSize(4),justifyContent:'center',alignItems:'center'}}>
                             <Text style={{color:'#10B981'}}>参与项目</Text>
                         </TouchableOpacity>
@@ -123,23 +124,6 @@ export default function StartupIndexScreen() {
 
     }
 
-    const dddd = () => {
-
-        let url = '/mobile/jobs/list'
-
-        R_POST(url,{  "pageNum": 1,
-            "pageSize": 10,
-            "orderBy": "",
-            "userId": 9}).then(res=>{
-
-                console.log('--->',res)
-
-        }).catch(err=>{
-
-        })
-
-    }
-
 
     return(<View style={{flex:1,backgroundColor:"",paddingTop:0}}>
 
@@ -157,7 +141,7 @@ export default function StartupIndexScreen() {
             renderRow={renderRow}
             url={'/mobile/jobs/list'}
             params={{}}
-            queryKey={'normal-list'}
+            queryKey={'normal-list111'}
             style={{marginTop:appSize(10)}}
         />
 

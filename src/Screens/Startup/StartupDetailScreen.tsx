@@ -8,13 +8,16 @@ import { WebView } from 'react-native-webview';
 import {ROUTES} from "../../Components/Constant";
 import {R_POST} from "../../Services/NetRequestService";
 
-export default function StartupDetailScreen() {
+export default function StartupDetailScreen(props) {
 
     const insets =  useSafeAreaInsets()
+
+    const {jobsId} = props?.route?.params
 
     const [webViewHeight, setWebViewHeight] = useState(0);
 
     const [detail,setDetail] = useState(null)
+    const [requiredList,setRequiredList] = useState([])
 
     useEffect(()=>{
 
@@ -28,7 +31,7 @@ export default function StartupDetailScreen() {
 
         let params = {
             "userId": 9,
-            "projectJobsId": 1
+            "projectJobsId": jobsId
         }
 
         R_POST(url,params).then(res=>{
@@ -37,9 +40,34 @@ export default function StartupDetailScreen() {
 
             setDetail(res?.data)
 
+            getRequiredList()
+
         }).catch(err=>{
             console.log('err',err)
         })
+
+    }
+
+    const getRequiredList = () => {
+        // /mobile/jobs/requiredInfo
+
+        let url = '/mobile/jobs/requiredInfo'
+
+        let params = {
+            "userId": 9,
+            "projectJobsId": jobsId,
+            "userLevel": 0,
+        }
+
+        R_POST(url,params).then(res=>{
+
+            console.log('getRequiredList:',res)
+            setRequiredList(res?.data)
+
+        }).catch(err=>{
+            console.log('err',err)
+        })
+
 
     }
 
@@ -81,13 +109,13 @@ export default function StartupDetailScreen() {
 
                 <View style={{flexDirection:'row',flexWrap:'wrap',gap:appSize(6),marginTop:appSize(10)}}>
 
-                    {detail?.jobTags.map((v,i,a)=>{
+                    {/*{detail?.jobTags.map((v,i,a)=>{*/}
 
-                        return(<View key={i} style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>
-                            <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>
-                        </View>)
+                    {/*    return(<View key={i} style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>*/}
+                    {/*        <Text style={{color:'#666666',fontSize:appSize(12)}}>Ai电商</Text>*/}
+                    {/*    </View>)*/}
 
-                    })}
+                    {/*})}*/}
 
 
                     {/*<View style={{borderRadius:appSize(4),paddingHorizontal:appSize(8),paddingVertical:appSize(6),backgroundColor:'#0000000D'}}>*/}
@@ -162,19 +190,37 @@ export default function StartupDetailScreen() {
                 <View style={{paddingHorizontal:appSize(16),paddingVertical:appSize(16),minHeight:appSize(100),width:'100%',backgroundColor:'#ffffff',marginTop:appSize(12),borderRadius:appSize(12)}} >
                     <Text style={{color:'#333333',fontSize:appSize(16)}}>参与条件</Text>
 
-                    <View style={{marginTop:appSize(12),flex:1,justifyContent:'space-between',flexDirection:'row',alignItems:'center',height:appSize(33)}}>
-                        <View style={{flexDirection:'row',alignItems:'center',gap:appSize(6),borderRadius:appSize(8),backgroundColor:'#F7F7F7',paddingHorizontal:appSize(12),justifyContent:'center',height:appSize(33)}}>
-                            <Image source={require('../../Assets/Startup/select_off.png')} style={{height:appSize(18),width:appSize(18)}} />
-                            <Text style={{color:'#333333',fontSize:appSize(14)}}>完成AI剪辑课程</Text>
-                        </View>
-                        <TouchableOpacity onPress={()=>{
-                            // navigate(ROUTES.CLASS_DETAIL)
 
-                            getDetail()
-                        }} style={{justifyContent:'center',alignItems:'center',borderRadius:appSize(20),borderWidth:1,borderColor:'#10B981',height:appSize(33),paddingHorizontal:appSize(12)}}>
-                            <Text style={{color:'#10B981',fontSize:appSize(12)}}>去订阅</Text>
-                        </TouchableOpacity>
-                    </View>
+                    {requiredList?.map((value, index, array)=>{
+
+                        return(<View key={index} style={{marginTop:appSize(12),flex:1,justifyContent:'space-between',flexDirection:'row',alignItems:'center',height:appSize(33)}}>
+                            <View style={{flexDirection:'row',alignItems:'center',gap:appSize(6),borderRadius:appSize(8),backgroundColor:'#F7F7F7',paddingHorizontal:appSize(12),justifyContent:'center',height:appSize(33)}}>
+                                <Image source={value?.isRequired?require('../../Assets/Startup/select_on.png'):require('../../Assets/Startup/select_off.png')} style={{height:appSize(18),width:appSize(18)}} />
+                                <Text style={{color:'#333333',fontSize:appSize(14)}}>完成AI剪辑课程</Text>
+                            </View>
+
+
+                            {/*<TouchableOpacity onPress={()=>{*/}
+                            {/*    navigate(ROUTES.CLASS_DETAIL,{courseId:value?.courseId})*/}
+                            {/*    // getDetail()*/}
+                            {/*}} style={{justifyContent:'center',alignItems:'center',borderRadius:appSize(20),borderWidth:1,borderColor:'#10B981',height:appSize(33),paddingHorizontal:appSize(12)}}>*/}
+                            {/*    <Text style={{color:'#10B981',fontSize:appSize(12)}}>去订阅</Text>*/}
+                            {/*</TouchableOpacity>*/}
+
+                            {value?.isRequired && <TouchableOpacity onPress={()=>{
+                                navigate(ROUTES.CLASS_DETAIL,{courseId:value?.courseId})
+                                // getDetail()
+                            }} style={{justifyContent:'center',alignItems:'center',borderRadius:appSize(20),borderWidth:1,borderColor:'#10B981',height:appSize(33),paddingHorizontal:appSize(12)}}>
+                                <Text style={{color:'#10B981',fontSize:appSize(12)}}>去订阅</Text>
+                            </TouchableOpacity>}
+
+
+                        </View>)
+                    })}
+
+
+
+
 
                     {/*<View style={{marginTop:appSize(12),flex:1,justifyContent:'space-between',flexDirection:'row',alignItems:'center',height:appSize(33)}}>*/}
                     {/*    <View style={{flexDirection:'row',alignItems:'center',gap:appSize(6),borderRadius:appSize(8),backgroundColor:'#F7F7F7',paddingHorizontal:appSize(12),justifyContent:'center',height:appSize(33)}}>*/}

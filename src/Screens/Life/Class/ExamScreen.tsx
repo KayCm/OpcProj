@@ -35,8 +35,8 @@ export default function ExamScreen(props) {
         console.log('Received from WebView:', event.nativeEvent.data);
         try {
             const data = JSON.parse(event.nativeEvent.data);
-            params?.updateFunc(params?.userChapterId);
             console.log(data);
+            params?.updateFunc(params?.userChapterId,data?.message == 'true'?true:false);
             goBack()
             // 处理 JSON 数据
         } catch (e) {
@@ -49,7 +49,7 @@ export default function ExamScreen(props) {
       <View style={{ flex: 1 }}>
         <Nav />
         <WebView
-          source={{ uri: 'http://192.168.1.9:3000' }}
+          source={{ uri: 'https://opc-exam.43046721.xyz' }}
           style={{ flex: 1, backgroundColor: '#f7f7f7', width: '100%' }}
           onMessage={handleMessage}
         />

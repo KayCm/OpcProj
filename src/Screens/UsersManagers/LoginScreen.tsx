@@ -9,6 +9,7 @@ import Toast from 'react-native-root-toast';
 import {LoginViewModel} from "./LoginViewModel";
 import {useSelector} from "react-redux";
 
+
 export default function LoginScreen() {
 
     const inset = useSafeAreaInsets()
@@ -84,11 +85,10 @@ export default function LoginScreen() {
                   <View style={{flex:1,paddingTop:appSize(32),paddingHorizontal:appSize(24)}}>
 
                     <Text style={{color:'#000000',fontSize:appSize(14)}}>手机号码</Text>
-                    <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',paddingHorizontal:appSize(10),marginTop:appSize(10),borderRadius:appSize(5),width:'100%',height:appSize(60),backgroundColor:'#f7f7f7'}}>
-                      {/*<TextInput placeholder={'+86'} editable={false} style={{textAlign:'center',width:appSize(44),height:appSize(44),color:'#1A1A1A'}} />*/}
-                      {/*<View style={{width:1,height:appSize(26),backgroundColor:'#999999'}} />*/}
-                      <TextInput placeholder={'请输入您的手机号'} placeholderTextColor={'#CCCCCC'} style={{ paddingTop: 0,
-                          paddingBottom: 0,textAlignVertical: 'center', lineHeight:appSize(14*1.25),fontSize:appSize(14),marginLeft:appSize(4),width:'100%',height:appSize(44),backgroundColor:'red'}} />
+                    <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',paddingHorizontal:appSize(10),marginTop:appSize(10),borderRadius:appSize(5),width:'100%',backgroundColor:'#f7f7f7'}}>
+                      <TextInput placeholder={'+86'} editable={false} style={{paddingVertical: 0,textAlignVertical: 'center',fontSize:appSize(14),textAlign:'center',width:appSize(44),height:appSize(44),color:'#1A1A1A'}} />
+                      <View style={{width:1,height:appSize(26),backgroundColor:'#999999'}} />
+                      <TextInput placeholder={'请输入您的手机号'} placeholderTextColor={'#CCCCCC'} style={{paddingVertical: 0,textAlignVertical: 'center',fontSize:appSize(14),marginLeft:appSize(4),flex:1,height:appSize(44),backgroundColor:''}} />
                     </View>
                     <Text style={{marginTop:appSize(8),fontSize: appSize(11), color: '#FF4040' }}>请您检查手机号码是否正确</Text>
 
@@ -204,6 +204,7 @@ export default function LoginScreen() {
           </View>
 
         </View>
+
 
 
       </LinearGradient>)

@@ -32,10 +32,8 @@ export const HeaderNews = () => {
 
 export const RowWithText = ({item,index}) => {
 
-    console.log("item",item)
-    console.log("index",index)
-
-
+    // console.log("item",item)
+    // console.log("index",index)
 
     return(<View id={index} style={{paddingVertical:appSize(6)}}>
 

@@ -61,7 +61,7 @@ const particleSlice = createSlice({
             return state;
         },
         updateToken: (state,param) => {
-            console.log('param:',param)
+            console.log('updateToken:',param)
             const { payload } = param;
             state.appData.token = payload?.token;
         },

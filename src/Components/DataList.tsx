@@ -22,10 +22,10 @@ const fetchItems = async ({ pageParam = 1,url ,params}: any): Promise<PageData> 
     if (response.code != 200) throw new Error('Network response was not ok');
     const data = response.data
 
-    console.log("data===>")
-    console.log(data)
-    console.log("response===>")
-    console.log(response.total)
+    // console.log("data===>")
+    // console.log(data)
+    // console.log("response===>")
+    // console.log(response.total)
 
     const currentPage = pageParam;
     const totalPages = Math.ceil(response.total/10);

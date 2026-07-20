@@ -14,6 +14,7 @@ const USER_AGENT_ANDROID = "Mozilla/5.0 \(Linux; Android 6.0.1; SM-C7000 Build/M
 export const USER_AGENT = Platform.OS === "ios" ? USER_AGENT_IOS : USER_AGENT_ANDROID
 
 
+
 /**
  * get请求
  * @param url {string} 请求地址
@@ -195,7 +196,9 @@ function _FETCH(url, param = {}, options = {},showLog=false) {
 
         axiosInstance.request(aoh_opts).then((res)=>{
 
-            console.log('===============>',res)
+            console.log('===============>',url)
+            console.log(res)
+            console.log('<===============')
 
             if (res?.data?.code == 200){
                 const {data} = res;
@@ -204,9 +207,13 @@ function _FETCH(url, param = {}, options = {},showLog=false) {
                 resolve(rh_res);
             }else{
                 console.log('navigationRef',navigationRef)
-                console.log('<--->',res)
-                store.getState()?.logout()
-                navigationRef.current?.navigate('Login')
+                console.log('<--->',store.getState())
+                console.log('<--->1',navigationRef)
+                // store.getState()?.logout()
+                // setTimeout(()=>{
+                    navigationRef.current?.navigate('Login')
+                // },500)
+
             }
         }).catch((err)=>{
 

@@ -21,7 +21,7 @@ export default function HomeIndexScreen() {
 
       const renderItem = (item) => {
 
-        console.log(item);
+        // console.log(item);
 
         return (<ImageBackground  source={require('../../Assets/demo/11.png')} style={{justifyContent:'center',alignItems:'center',width: WINDOW_WIDTH,height:appSize(245),backgroundColor:'#123'}}>
 

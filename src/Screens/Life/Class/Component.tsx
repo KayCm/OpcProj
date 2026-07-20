@@ -6,6 +6,7 @@ import {useSafeAreaInsets} from "react-native-safe-area-context";
 import {ROUTES} from "../../../Components/Constant";
 import WebView from "react-native-webview";
 import {TabBarRenderProps} from "react-native-collapsible-tab";
+import {formatDate} from "../../../Components/Tools";
 
 export const Header = ({data}) => {
 
@@ -80,12 +81,10 @@ export const Header = ({data}) => {
 
 export const RenderRow = ({item,index,doExam=null}) => {
 
-
-    console.log(item)
-
+    console.log('RenderRow',item)
     if (item?.progressStatus == 1){
         return <RenderRowWaitExam item={item} examPress={doExam} />
-    }else if(item?.progressStatus == 2){
+    }else if(item?.progressStatus == 3){
         return <RenderRowPassExam item={item} />
     }else{
         return(<View style={{paddingVertical:appSize(6)}}>
@@ -130,7 +129,7 @@ export const RenderRowWaitExam = ({item,index,examPress}) => {
                 <View style={{flexDirection:'row',gap:appSize(6),marginTop:appSize(6)}}>
 
                     <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
-                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+{item?.courseChapterTitle}</Text></Text>
+                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+{item?.chapterGrowNum}</Text></Text>
                     </View>
 
 
@@ -176,7 +175,7 @@ export const RenderRowPassExam = ({item,index}) => {
                 <View style={{flexDirection:'row',gap:appSize(6),marginTop:appSize(6)}}>
 
                     <View style={{paddingHorizontal:appSize(8),paddingVertical:appSize(4),backgroundColor:'#F7F7F7',borderRadius:appSize(4)}}>
-                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+{item?.courseChapterTitle}</Text></Text>
+                        <Text style={{color:'#333333',fontSize:appSize(10)}}>成长等级<Text style={{color:'#10B981',fontSize:appSize(10)}}>+{item?.chapterGrowNum}</Text></Text>
                     </View>
 
 
@@ -236,23 +235,25 @@ export const ClassSummary =({data})=>{
     </View>)
 }
 
-export const RecProj = () => {
+export const RecProj = ({value}) => {
+
+    console.log('value',value)
 
     return(<View style={{backgroundColor:'#fff',borderRadius:appSize(12),paddingVertical:appSize(16),paddingHorizontal:appSize(12)}}>
 
         <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
-            <Text style={{fontWeight:'600',fontSize:appSize(14),color:'#333333'}}>AI漫剧自动化</Text>
+            <Text style={{fontWeight:'600',fontSize:appSize(14),color:'#333333'}}>{value?.jobTitle}</Text>
             <Text style={{fontWeight:'600',fontSize:appSize(14),color:'#FFA059'}}>¥ 1000起</Text>
         </View>
         <View style={{flexDirection:'row',alignItems:'center',marginTop:appSize(4)}}>
-            <Text style={{color:'#999999',fontSize:appSize(12)}}>项目</Text>
+            <Text style={{color:'#999999',fontSize:appSize(12)}}>{value?.jobCompanyName}</Text>
         </View>
 
         <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',gap:appSize(4),marginTop:appSize(8)}} >
             <View>
                 <View style={{flexDirection:'row',gap:appSize(4),paddingVertical:appSize(4),paddingHorizontal:appSize(8),backgroundColor:'#F7F7F7',borderRadius:appSize(4),alignItems:'center'}} >
                     <Image style={{width:appSize(15),height:appSize(15)}} source={require('../../../Assets/Startup/hugeicon.png')} />
-                    <Text style={{color:'#666666',fontSize:appSize(12)}}>项目人数：20 人 | 截止 06-15</Text>
+                    <Text style={{color:'#666666',fontSize:appSize(12)}}>项目人数：{value?.jobRecruitsNumber} 人 | 截止 {formatDate(value?.jobApplicationDeadline)}</Text>
                 </View>
             </View>
 

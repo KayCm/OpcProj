@@ -11,13 +11,9 @@ function Detail(props: any) {
 
     // const nav = useNavigation()
 
-    const item = props?.route?.params?.item
-
     const insets = useSafeAreaInsets();
 
-
-    console.log('item',item)
-
+    //console.log('item',item)
 
     // 注入的 JavaScript 代码：等待页面加载完成后，在顶部添加标题栏
     const webViewRef = useRef(null)
@@ -46,7 +42,7 @@ function Detail(props: any) {
         </View>)
     }
 
-    console.log('data:',data?.data)
+    // console.log('data:',data?.data)
     const mockHtml = `
     <!DOCTYPE html>
     <html lang="en">
